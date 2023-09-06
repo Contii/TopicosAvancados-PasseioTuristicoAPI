@@ -27,9 +27,4 @@ public class Reserva extends BaseEntity {
     @JoinColumn(name = "pacote_id") //pacote_id é referência à chave estrangeira na tabela
     private Pacote pacote;
 
-    //pessoa que comprou o pacote
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
-
 }

@@ -1,0 +1,23 @@
+@URL_BASE=http://localhost:8080
+
+###Obter todas as pessoas por pagina
+GET {{URL_BASE}}/pessoa/pages?size=20&page=2&sort=email&direction=DESC
+
+
+###Obter todas as pessoas
+GET {{URL_BASE}}/pessoa
+
+###Obter pessoa pelo ID
+GET {{URL_BASE}}/pessoa/10
+
+
+###Cadastrar uma pessoa
+POST {{URL_BASE}}/pessoa
+Content-Type: application/json
+
+{
+    "nome": "Zé Ramalho",
+    "perfil" : "joao",
+    "email": "zeramalho@gmail.com",
+    "nascimento": "1960-01-01T00:00"
+}

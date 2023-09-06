@@ -7,8 +7,6 @@ import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -54,9 +52,5 @@ public class Pacote extends BaseEntity {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pacote") // pacote é o atributo na classe Reserva
     private List<Reserva> reservas = new ArrayList<>();
-
-    @ManyToOne
-    @JoinColumn(name = "person_id")
-    private Person person;
 
 }
