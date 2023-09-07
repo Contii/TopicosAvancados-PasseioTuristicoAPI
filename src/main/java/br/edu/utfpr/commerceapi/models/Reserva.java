@@ -1,30 +1,44 @@
 package br.edu.utfpr.commerceapi.models;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table
 @Setter
 @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Reserva extends BaseEntity {
     
-    @Column(name = "name", length = 140, nullable = false)
-    private String nome;
+    //dia do passeio
+    @Column(name = "dataReserva", nullable = false)
+    private LocalDate dataReserva;
 
-    //dia do passeio/reserva
-    private LocalDateTime data;
-
-    //pacote que possui este passeio/reserva
     @ManyToOne
-    @JoinColumn(name = "pacote_id") //pacote_id é referência à chave estrangeira na tabela
-    private Pacote pacote;
+    @JoinColumn(name = "pagamento_id") //pagamento_id é a chave estrangeira importada da tabela Pagamento
+    private Pagamento pagamento;
+
+    @ManyToOne
+    @JoinColumn(name = "passeio_id") //passeio_id é a chave estrangeira importada da tabela Passeio
+    private Passeio passeio;
+
+
 
 }

@@ -21,7 +21,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 // ou somente @Data
 
 // jakarta - JPA
@@ -50,7 +49,12 @@ public class Pacote extends BaseEntity {
     @Column(name = "vagasDisponiveis", nullable = false)
     private int vagasDisponiveis;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pacote") // pacote é o atributo na classe Reserva
-    private List<Reserva> reservas = new ArrayList<>();
+    //quais passeios este pacote inclui
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pacote") // pacote é o atributo na classe Passeio
+    private List<Passeio> passeios = new ArrayList<>();
+
+    //quantos pagamentos foram feitos
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pacote") // pacote é o atributo na classe Pagamento
+    private List<Pagamento> pagamentos = new ArrayList<>();
 
 }

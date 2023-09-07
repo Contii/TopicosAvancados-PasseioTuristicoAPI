@@ -21,8 +21,7 @@ public class PersonDTO {
     private String perfil;
     private String email;
     private LocalDateTime nascimento;
-
-    //senha
-    //telefone
+    private String senha;
+    private String telefone;
 
 }
