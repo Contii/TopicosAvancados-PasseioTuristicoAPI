@@ -37,5 +37,4 @@ public class Pagamento extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "pessoa_id")
     private Person pessoa;
-
 }

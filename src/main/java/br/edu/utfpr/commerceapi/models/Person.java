@@ -49,5 +49,4 @@ public class Person extends BaseEntity {
     //quais pagamentos esta pessoa fez
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa") // pessoa é o atributo na classe Pagamento
     private List<Pagamento> pagamentos = new ArrayList<>();
-
 }

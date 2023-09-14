@@ -1,0 +1,59 @@
+@URL_BASE=http://localhost:8080
+
+// ------------------ GET ------------------
+###Obter todos os pacotes por pagina
+GET {{URL_BASE}}/pacote/pages?size=20&page=2&sort=email&direction=DESC
+
+###Obter todos os pacotes
+GET {{URL_BASE}}/pacote
+
+###Obter pacote pelo ID
+GET {{URL_BASE}}/pacote/10
+
+
+// ------------------ PUT ------------------
+
+
+
+
+// ------------------ POST ------------------
+###Cadastrar um pacote
+POST {{URL_BASE}}/pacote
+Content-Type: application/json
+
+{
+    "nome": "Pacote Épico da Aventura Espacial",
+    "descricao": "Prepare-se para a viagem mais estranha e emocionante da sua vida!
+    Junte-se a uma equipe de astronautas destemidos enquanto exploramos os confins do espaço,
+    combatemos alienígenas amigáveis e descobrimos a verdadeira essência da vida (extraterrestre).
+    Este pacote inclui uma estadia de 7 dias em nossa espaçonave luxuosa, comida de astronauta
+    gourmet e um traje espacial da moda para você arrasar nas fotos intergalácticas.",
+    "valor": 999999.99,
+    "duracaoEmDias": 7,
+    "dataInicio": "2024-04-01",
+    "dataFim": "2024-04-07"
+}
+
+###Cadastrar um pacote
+POST {{URL_BASE}}/pacote
+Content-Type: application/json
+
+{
+    "nome": "Exploração Extrema das Cataratas do Iguaçu",
+    "descricao": "Prepare-se para uma aventura aquática como nenhuma outra!
+    Este pacote levará você para as profundezas das Cataratas do Iguaçu,
+    onde você terá a chance de se misturar com os pássaros tropicais e até
+    mesmo fazer amizade com um panda vermelho ocasional (sim, eles vivem aqui também).
+    Desça as quedas d'água em um bote inflável personalizado e teste sua bravura em uma
+    trilha pela floresta tropical. Inclui um dia de spa para recuperar-se dos borrifos de
+    água e das risadas garantidas.",
+    "valor": 2499.99,
+    "duracaoEmDias": 5,
+    "dataInicio": "2023-11-15",
+    "dataFim": "2023-11-19"
+}
+
+
+
+
+// ------------------ DELETE ------------------

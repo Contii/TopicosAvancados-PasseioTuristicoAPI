@@ -1,0 +1,31 @@
+@URL_BASE=http://localhost:8080
+
+// ------------------ GET ------------------
+###Obter todas as reservas por pagina
+GET {{URL_BASE}}/reserva/pages?size=20&page=2&sort=email&direction=DESC
+
+###Obter todas as reservas
+GET {{URL_BASE}}/reserva
+
+###Obter reserva pelo ID
+GET {{URL_BASE}}/reserva/10
+
+
+// ------------------ PUT ------------------
+
+
+
+
+// ------------------ POST ------------------
+###Cadastrar uma reserva
+POST {{URL_BASE}}/reserva
+Content-Type: application/json
+
+{
+    "dataReserva": 2023-11-15
+}
+
+
+
+
+// ------------------ DELETE ------------------

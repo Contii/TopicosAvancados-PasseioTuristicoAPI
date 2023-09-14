@@ -32,7 +32,4 @@ public class Reserva extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "passeio_id") //passeio_id é a chave estrangeira importada da tabela Passeio
     private Passeio passeio;
-
-
-
 }

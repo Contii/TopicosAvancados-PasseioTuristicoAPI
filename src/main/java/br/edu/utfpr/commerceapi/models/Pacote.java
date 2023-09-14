@@ -56,5 +56,4 @@ public class Pacote extends BaseEntity {
     //quantos pagamentos foram feitos
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pacote") // pacote é o atributo na classe Pagamento
     private List<Pagamento> pagamentos = new ArrayList<>();
-
 }
