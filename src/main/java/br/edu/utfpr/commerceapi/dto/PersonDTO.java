@@ -18,10 +18,14 @@ import lombok.ToString;
 public class PersonDTO {
    
     private String nome;
-    private String perfil;
     private String email;
-    private LocalDateTime nascimento;
     private String senha;
     private String telefone;
+    private LocalDateTime nascimento;
+    private String perfil;
+
+
+
+
 
 }

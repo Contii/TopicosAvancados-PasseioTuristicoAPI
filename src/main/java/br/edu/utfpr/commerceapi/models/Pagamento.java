@@ -1,6 +1,4 @@
 package br.edu.utfpr.commerceapi.models;
-import java.util.UUID;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
