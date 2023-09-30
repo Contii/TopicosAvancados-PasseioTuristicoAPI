@@ -16,10 +16,6 @@ import lombok.ToString;
 // ou somente @Data
 
 public class PagamentoDTO {
-
-    @NotBlank(message = "campo valor obrigatório.")
-    private float valor;
-
     @NotBlank(message = "campo formaPagamento obrigatório.")
     private String formaPagamento;
 }

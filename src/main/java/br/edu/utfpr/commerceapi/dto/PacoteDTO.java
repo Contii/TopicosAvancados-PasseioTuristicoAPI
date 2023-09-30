@@ -47,4 +47,9 @@ public class PacoteDTO {
     @NotBlank(message = "campo dataFim obrigatório.")
     @Future(message = "Deve ser no futuro.") //erro ao criar dataInicio maior que dataFim.
     private LocalDate dataFim;
+
+    @NotBlank(message = "campo vagasDisponiveis obrigatório.")
+    @Min(value = 1, message = "Mínimo 1.")
+    @Max(value = 7, message = "Máximo 5.")
+    private int vagasDisponiveis;
 }

@@ -32,33 +32,31 @@ public class PasseioController {
 	@Autowired
 	PasseioRepository passeioRepository;
 
-	/** Obtem todas as passeios do banco em lista. */
+	/*============= Obtem todos os passeios do banco em lista. =============*/
 	@GetMapping("/pages")
 	public ResponseEntity<Page<Passeio>> getAllPage(@PageableDefault(
 		page=0, size=10, sort="nome", direction = Sort.Direction.ASC) Pageable pageable)
 		{
 			return ResponseEntity.ok( passeioRepository.findAll(pageable));
 		}
-
-	/** Obtem todas as passeios do banco em lista. */
+	/**============= Obtem todos os passeios do banco em lista. ============*/
 	@GetMapping(value = { "", "/" })
 		public List<Passeio> getAll() {
 			return passeioRepository.findAll();
 		}
-
-	/** Obtem 1 passeio pelo ID. */
+	/**====================== Obtem 1 passeio pelo ID. =====================*/
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> getById(@PathVariable String id) {
 		Optional<Passeio> passeioOpt = passeioRepository.findById(UUID.fromString(id));
 		return passeioOpt.isPresent() ? ResponseEntity.ok(passeioOpt.get()) : ResponseEntity.notFound().build();
 	}
 
-	/** Cria uma passeio. */
+
+	/**========================= Cria um passeio. =========================*/
 	@PostMapping(value = { "", "/" })
 	public ResponseEntity<Object> create(@RequestBody PasseioDTO passeioDTO) {
 		var pas = new Passeio(); // passeio para persistir no DB
 		BeanUtils.copyProperties(passeioDTO, pas);
-
 		try {
 			return ResponseEntity.status(HttpStatus.CREATED).body( passeioRepository.save(pas) );
 		} catch(Exception e) {
@@ -67,7 +65,8 @@ public class PasseioController {
 		}
 	}
 
-	/** Atualiza 1 passeio pelo ID. */
+
+	/**==================== Atualiza 1 passeio pelo ID. ====================*/
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable String id, @RequestBody PasseioDTO passeioDTO) {
 		UUID uuid;
@@ -77,18 +76,14 @@ public class PasseioController {
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
 		}
-		
 		//buscando no bando de dados
 		var passeio = passeioRepository.findById(uuid);
-
 		//verifica se ela existe
 		if (passeio.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		var passeioToUpdate = passeio.get();
 		BeanUtils.copyProperties(passeioDTO, passeioToUpdate);
 		passeioToUpdate.setUpdatedAt(LocalDateTime.now());
-
 		try {
 			return ResponseEntity.ok().body( passeioRepository.save(passeioToUpdate) );
 		} catch(Exception e) {
@@ -97,7 +92,8 @@ public class PasseioController {
 		}
 	}
 
-	/** Deleta 1 passeio pelo ID. */
+
+	/**===================== Deleta 1 passeio pelo ID. =====================*/
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable String id) {
 		UUID uuid;
@@ -107,18 +103,14 @@ public class PasseioController {
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
 		}
-		
 		var passeio = passeioRepository.findById(uuid);
-
 		if (passeio.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		try {
 			passeioRepository.delete(passeio.get());
 			return ResponseEntity.ok().build();
 		} catch(Exception e) {
 			e.printStackTrace();
-
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 			.body(e.getMessage());
 		}

@@ -1,12 +1,7 @@
 package br.edu.utfpr.commerceapi.models;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 //importa todos os lombok
 import lombok.AllArgsConstructor;
@@ -25,7 +20,7 @@ import lombok.ToString;
 
 //jakarta - JPA
 @Entity
-@Table(name = "TB_Person") // caso nao inserir ele coloca o nome da tabela
+@Table(name = "TB_Person") // caso nao inserir ele coloca o nome da classe
 public class Person extends BaseEntity {
    
     @Column(name = "name", length = 140, nullable = false)
@@ -45,8 +40,4 @@ public class Person extends BaseEntity {
 
     @Column(name = "perfil", length = 20, nullable = false) // Cliente ou Agencia
     private String perfil;
-
-    //quais pagamentos esta pessoa fez
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pessoa") // pessoa é o atributo na classe Pagamento
-    private List<Pagamento> pagamentos = new ArrayList<>();
 }

@@ -32,33 +32,31 @@ public class PersonController {
 	@Autowired
 	PersonRepository personRepository;
 
-	/** Obtem todas as pessoas do banco em lista. */
+	/*============= Obtem todas as pessoas do banco em lista. =============*/
 	@GetMapping("/pages")
 	public ResponseEntity<Page<Person>> getAllPage(@PageableDefault(
 		page=0, size=10, sort="nome", direction = Sort.Direction.ASC) Pageable pageable)
 		{
 			return ResponseEntity.ok( personRepository.findAll(pageable));
 		}
-
-	/** Obtem todas as pessoas do banco em lista. */
+	/**============= Obtem todas as pessoas do banco em lista. ============*/
 	@GetMapping(value = { "", "/" })
 		public List<Person> getAll() {
 			return personRepository.findAll();
 		}
-
-	/** Obtem 1 pessoa pelo ID. */
+	/**====================== Obtem 1 pessoa pelo ID. =====================*/
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> getById(@PathVariable String id) {
 		Optional<Person> personOpt = personRepository.findById(UUID.fromString(id));
 		return personOpt.isPresent() ? ResponseEntity.ok(personOpt.get()) : ResponseEntity.notFound().build();
 	}
 
-	/** Cria uma pessoa. */
+
+	/**========================= Cria uma pessoa. =========================*/
 	@PostMapping(value = { "", "/" })
 	public ResponseEntity<Object> create(@RequestBody PersonDTO personDTO) {
 		var pes = new Person(); // pessoa para persistir no DB
 		BeanUtils.copyProperties(personDTO, pes);
-
 		try {
 			return ResponseEntity.status(HttpStatus.CREATED).body( personRepository.save(pes) );
 		} catch(Exception e) {
@@ -67,7 +65,8 @@ public class PersonController {
 		}
 	}
 
-	/** Atualiza 1 pessoa pelo ID. */
+
+	/**==================== Atualiza 1 pessoa pelo ID. ====================*/
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable String id, @RequestBody PersonDTO personDTO) {
 		UUID uuid;
@@ -76,19 +75,15 @@ public class PersonController {
 		} catch(Exception e) { 
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
-		}
-		
+		}	
 		//buscando no bando de dados
 		var person = personRepository.findById(uuid);
-
 		//verifica se ela existe
 		if (person.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		var personToUpdate = person.get();
 		BeanUtils.copyProperties(personDTO, personToUpdate);
 		personToUpdate.setUpdatedAt(LocalDateTime.now());
-
 		try {
 			return ResponseEntity.ok().body( personRepository.save(personToUpdate) );
 		} catch(Exception e) {
@@ -97,7 +92,8 @@ public class PersonController {
 		}
 	}
 
-	/** Deleta 1 pacote pelo ID. */
+
+	/**===================== Deleta 1 pacote pelo ID. =====================*/
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable String id) {
 		UUID uuid;
@@ -106,19 +102,15 @@ public class PersonController {
 		} catch(Exception e) { 
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
-		}
-		
+		}	
 		var person = personRepository.findById(uuid);
-
 		if (person.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		try {
 			personRepository.delete(person.get());
 			return ResponseEntity.ok().build();
 		} catch(Exception e) {
 			e.printStackTrace();
-
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 			.body(e.getMessage());
 		}

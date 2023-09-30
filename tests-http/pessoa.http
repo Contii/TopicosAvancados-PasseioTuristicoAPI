@@ -1,36 +1,72 @@
 @URL_BASE=http://localhost:8080
-
-// ------------------ GET ------------------
-###Obter todas as pessoas por pagina
-GET {{URL_BASE}}/pessoa/pages?size=20&page=2&sort=email&direction=DESC
-
-###Obter todas as pessoas
-GET {{URL_BASE}}/pessoa
-
-###Obter pessoa pelo ID
-GET {{URL_BASE}}/pessoa/10
-
-
-// ------------------ PUT ------------------
-
-
-
-
-// ------------------ POST ------------------
-###Cadastrar uma pessoa
+// ==================================================
+// ====================== POST ======================
+// ==================================================
+### Cadastrar uma pessoa
 POST {{URL_BASE}}/pessoa
 Content-Type: application/json
 
 {
-    "nome": "Zé Ramalho",
-    "email" : "zeramalho@gmail.coma",
-    "senha": "misteriosDaMeiaNoite",
-    "telefone": "+55 045 9 9912-3456",
-    "nascimento" : "1960-01-01T00:00",
-    "perfil" : "Cliente"
+    "nome": "Zé Ramalhoa", "email": "zeramalhoa@gmail.com", "senha": "misteriosDaMeiaNoite",
+    "telefone": "+55 045 9 9912-3456", "nascimento": "1960-01-01T00:00", "perfil": "Cliente"
+}
+### Cadastrar uma pessoa
+POST {{URL_BASE}}/pessoa
+Content-Type: application/json
+
+{
+    "nome": "Michael Jacksona", "email": "mjacksona@gmail.com", "senha": "thriller1982",
+    "telefone": "+1 123-456-7890", "nascimento": "1958-08-29T00:00", "perfil": "Cliente"
+}
+### Cadastrar uma pessoa
+POST {{URL_BASE}}/pessoa
+Content-Type: application/json
+
+{
+    "nome": "Tiririca", "email": "tiririca@email.com", "senha": "florentina2010",
+    "telefone": "+55 11 98765-4321", "nascimento": "1965-05-01T00:00", "perfil": "Cliente"
+}
+### Cadastrar uma pessoa
+POST {{URL_BASE}}/pessoa
+Content-Type: application/json
+
+{
+    "nome": "Elon Musk", "email": "elonmusk@email.com", "senha": "spacex2023",
+    "telefone": "+1 987-654-3210", "nascimento": "1971-06-28T00:00", "perfil": "Cliente"
 }
 
 
+// ==================================================
+// ====================== GET =======================
+// ==================================================
+### Obter todas as pessoas
+GET {{URL_BASE}}/pessoa
+
+### Obter todas as pessoas por pagina
+GET {{URL_BASE}}/pessoa/pages?size=2&page=2&sort=email&direction=DESC
+
+### Obter pessoa pelo ID
+GET {{URL_BASE}}/pessoa/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
 
 
-// ------------------ DELETE ------------------
+// ==================================================
+// ====================== PUT =======================
+// ==================================================
+### Atualizar 1 pessoa
+PUT {{URL_BASE}}/pessoa/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
+Content-Type: application/json
+
+{
+    "nome": "Alterado",
+    "email": "alterado@gmail.com",
+    "senha": "misteriosDaMeiaNoite",
+    "telefone": "+55 045 9 9912-3456",
+    "nascimento" : "1960-01-01T00:00",
+    "perfil" : "Cliente" 
+}
+
+// ==================================================
+// ===================== DELETE =====================
+// ==================================================
+### Deletar pessoa pelo id
+DELETE {{URL_BASE}}/pessoa/264a82e8-e7cf-429c-84ac-42b61e3ba8b3

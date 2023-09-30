@@ -23,9 +23,6 @@ import lombok.ToString;
 @Entity
 @Table(name = "TB_Pagamento") // caso nao inserir ele coloca o nome da tabela
 public class Pagamento extends BaseEntity {
-   
-    @Column(name = "valor", nullable = false)
-    private float valor;
 
     @Column(name = "formaPagamento", length = 20, nullable = false)
     private String formaPagamento;
