@@ -32,33 +32,31 @@ public class ReservaController {
 	@Autowired
 	ReservaRepository reservaRepository;
 
-	/** Obtem todas as reservas do banco em lista. */
+	/*============= Obtem todas as reservas do banco em lista. =============*/
 	@GetMapping("/pages")
 	public ResponseEntity<Page<Reserva>> getAllPage(@PageableDefault(
-		page=0, size=10, sort="nome", direction = Sort.Direction.ASC) Pageable pageable)
+		page=0, size=10, direction = Sort.Direction.ASC) Pageable pageable)
 		{
 			return ResponseEntity.ok( reservaRepository.findAll(pageable));
 		}
-
-	/** Obtem todas as reservas do banco em lista. */
+	/**============= Obtem todas as reservas do banco em lista. ============*/
 	@GetMapping(value = { "", "/" })
 		public List<Reserva> getAll() {
 			return reservaRepository.findAll();
 		}
-
-	/** Obtem 1 reserva pelo ID. */
+	/**====================== Obtem 1 reserva pelo ID. =====================*/
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> getById(@PathVariable String id) {
 		Optional<Reserva> reservaOpt = reservaRepository.findById(UUID.fromString(id));
 		return reservaOpt.isPresent() ? ResponseEntity.ok(reservaOpt.get()) : ResponseEntity.notFound().build();
 	}
 
-	/** Cria uma reserva. */
+
+	/**========================= Cria uma reserva. =========================*/
 	@PostMapping(value = { "", "/" })
 	public ResponseEntity<Object> create(@RequestBody ReservaDTO reservaDTO) {
 		var res = new Reserva(); // reserva para persistir no DB
 		BeanUtils.copyProperties(reservaDTO, res);
-
 		try {
 			return ResponseEntity.status(HttpStatus.CREATED).body( reservaRepository.save(res) );
 		} catch(Exception e) {
@@ -67,7 +65,8 @@ public class ReservaController {
 		}
 	}
 
-	/** Atualiza 1 reserva pelo ID. */
+
+	/**==================== Atualiza 1 reserva pelo ID. ====================*/
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable String id, @RequestBody ReservaDTO reservaDTO) {
 		UUID uuid;
@@ -76,19 +75,15 @@ public class ReservaController {
 		} catch(Exception e) { 
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
-		}
-		
+		}		
 		//buscando no bando de dados
 		var reserva = reservaRepository.findById(uuid);
-
 		//verifica se ela existe
 		if (reserva.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		var reservaToUpdate = reserva.get();
 		BeanUtils.copyProperties(reservaDTO, reservaToUpdate);
 		reservaToUpdate.setUpdatedAt(LocalDateTime.now());
-
 		try {
 			return ResponseEntity.ok().body( reservaRepository.save(reservaToUpdate) );
 		} catch(Exception e) {
@@ -97,7 +92,8 @@ public class ReservaController {
 		}
 	}
 
-	/** Deleta 1 reserva pelo ID. */
+
+	/**===================== Deleta 1 pacote pelo ID. =====================*/
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable String id) {
 		UUID uuid;
@@ -106,19 +102,15 @@ public class ReservaController {
 		} catch(Exception e) { 
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
-		}
-		
+		}	
 		var reserva = reservaRepository.findById(uuid);
-
 		if (reserva.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		try {
 			reservaRepository.delete(reserva.get());
 			return ResponseEntity.ok().build();
 		} catch(Exception e) {
 			e.printStackTrace();
-
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 			.body(e.getMessage());
 		}

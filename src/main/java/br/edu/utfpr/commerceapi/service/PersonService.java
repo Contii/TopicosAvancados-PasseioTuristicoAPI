@@ -1,4 +1,4 @@
-package br.edu.utfpr.todo.service;
+package br.edu.utfpr.commerceapi.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,8 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import br.edu.utfpr.todo.model.Person;
-import br.edu.utfpr.todo.repository.PersonRepository;
+import br.edu.utfpr.commerceapi.models.Person;
+import br.edu.utfpr.commerceapi.repositories.PersonRepository;
 import jakarta.transaction.Transactional;
 
 @Service

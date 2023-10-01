@@ -1,31 +1,48 @@
 @URL_BASE=http://localhost:8080
-
-// ------------------ GET ------------------
-###Obter todas as reservas por pagina
-GET {{URL_BASE}}/reserva/pages?size=20&page=2&sort=email&direction=DESC
-
-###Obter todas as reservas
-GET {{URL_BASE}}/reserva
-
-###Obter reserva pelo ID
-GET {{URL_BASE}}/reserva/10
-
-
-// ------------------ PUT ------------------
-
-
-
-
-// ------------------ POST ------------------
-###Cadastrar uma reserva
+// ==================================================
+// ====================== POST ======================
+// ==================================================
+### Cadastrar uma reserva
 POST {{URL_BASE}}/reserva
 Content-Type: application/json
 
 {
-    "dataReserva": 2023-11-15
+    "dataReserva": "2023-12-12T00:00"
+}
+### Cadastrar uma reserva
+POST {{URL_BASE}}/reserva
+Content-Type: application/json
+
+{
+    "dataReserva": "2023-11-11T00:00"
 }
 
+// ==================================================
+// ====================== GET =======================
+// ==================================================
+### Obter todas as reservas
+GET {{URL_BASE}}/reserva
+
+### Obter todas as reservas por pagina
+GET {{URL_BASE}}/reserva/pages?size=2&page=2&direction=DESC
+
+### Obter reserva pelo ID
+GET {{URL_BASE}}/reserva/c22acf85-9ad6-4f2e-9774-4291f9de8c43
 
 
+// ==================================================
+// ====================== PUT =======================
+// ==================================================
+### Atualizar 1 reserva
+PUT {{URL_BASE}}/reserva/c22acf85-9ad6-4f2e-9774-4291f9de8c43
+Content-Type: application/json
 
-// ------------------ DELETE ------------------
+{
+    "dataReserva": "2023-11-11T00:00"
+}
+
+// ==================================================
+// ===================== DELETE =====================
+// ==================================================
+### Deletar reserva pelo id
+DELETE {{URL_BASE}}/reserva/c22acf85-9ad6-4f2e-9774-4291f9de8c43

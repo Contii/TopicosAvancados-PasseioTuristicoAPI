@@ -32,33 +32,31 @@ public class PagamentoController {
 	@Autowired
 	PagamentoRepository pagamentoRepository;
 
-	/** Obtem todas as pagamentos do banco em lista. */
+	/*============= Obtem todos os pagamentos do banco em lista. =============*/
 	@GetMapping("/pages")
 	public ResponseEntity<Page<Pagamento>> getAllPage(@PageableDefault(
-		page=0, size=10, sort="nome", direction = Sort.Direction.ASC) Pageable pageable)
+		page=0, size=10, direction = Sort.Direction.ASC) Pageable pageable)
 		{
 			return ResponseEntity.ok( pagamentoRepository.findAll(pageable));
 		}
-
-	/** Obtem todas as pagamentos do banco em lista. */
+	/**============= Obtem todos os pagamentos do banco em lista. ============*/
 	@GetMapping(value = { "", "/" })
 		public List<Pagamento> getAll() {
 			return pagamentoRepository.findAll();
 		}
-
-	/** Obtem 1 pagamento pelo ID. */
+	/**====================== Obtem 1 pagamento pelo ID. =====================*/
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> getById(@PathVariable String id) {
 		Optional<Pagamento> pagamentoOpt = pagamentoRepository.findById(UUID.fromString(id));
 		return pagamentoOpt.isPresent() ? ResponseEntity.ok(pagamentoOpt.get()) : ResponseEntity.notFound().build();
 	}
 
-	/** Cria uma pagamento. */
+
+	/**========================= Cria um pagamento. =========================*/
 	@PostMapping(value = { "", "/" })
 	public ResponseEntity<Object> create(@RequestBody PagamentoDTO pagamentoDTO) {
 		var pag = new Pagamento(); // pagamento para persistir no DB
 		BeanUtils.copyProperties(pagamentoDTO, pag);
-
 		try {
 			return ResponseEntity.status(HttpStatus.CREATED).body( pagamentoRepository.save(pag) );
 		} catch(Exception e) {
@@ -67,7 +65,8 @@ public class PagamentoController {
 		}
 	}
 
-	/** Atualiza 1 pagamento pelo ID. */
+
+	/**==================== Atualiza 1 pagamento pelo ID. ====================*/
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable String id, @RequestBody PagamentoDTO pagamentoDTO) {
 		UUID uuid;
@@ -76,19 +75,15 @@ public class PagamentoController {
 		} catch(Exception e) { 
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
-		}
-		
+		}	
 		//buscando no bando de dados
 		var pagamento = pagamentoRepository.findById(uuid);
-
 		//verifica se ela existe
 		if (pagamento.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		var pagamentoToUpdate = pagamento.get();
 		BeanUtils.copyProperties(pagamentoDTO, pagamentoToUpdate);
 		pagamentoToUpdate.setUpdatedAt(LocalDateTime.now());
-
 		try {
 			return ResponseEntity.ok().body( pagamentoRepository.save(pagamentoToUpdate) );
 		} catch(Exception e) {
@@ -97,7 +92,8 @@ public class PagamentoController {
 		}
 	}
 
-	/** Deleta 1 pagamento pelo ID. */
+
+	/**===================== Deleta 1 pagamento pelo ID. =====================*/
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable String id) {
 		UUID uuid;
@@ -106,19 +102,15 @@ public class PagamentoController {
 		} catch(Exception e) { 
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
-		}
-		
+		}	
 		var pagamento = pagamentoRepository.findById(uuid);
-
 		if (pagamento.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		try {
 			pagamentoRepository.delete(pagamento.get());
 			return ResponseEntity.ok().build();
 		} catch(Exception e) {
 			e.printStackTrace();
-
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 			.body(e.getMessage());
 		}

@@ -1,4 +1,4 @@
-package br.edu.utfpr.todo.service;
+package br.edu.utfpr.commerceapi.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

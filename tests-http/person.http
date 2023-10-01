@@ -1,41 +1,72 @@
-@URL = http://localhost:8080/person
-
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjRhYmFmYTJmLWFiMDItNGNiNC1iNDk3LTA2OWM4NDYyMTg1MyIsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjgxOTkzMDA4LCJleHAiOjE2ODE5OTY2MDgsImlzcyI6IlVURlBSIn0.Vy1Rz_dU2K28CaX9yEUjS5zJ4tTuDckos4Use93PeZ8
-
-
-### Obter todas pessoas
-GET {{URL}}
-Authorization: {{token}}
-
-### Obter uma pessoa pelo ID
-GET {{URL}}/70572e7b-0db0-4b20-8fd3-6c74ef4c1706
-Authorization: {{token}}
-
-### Criar uma pessoa
-POST {{URL}}
+@URL_BASE=http://localhost:8080
+// ==================================================
+// ====================== POST ======================
+// ==================================================
+### Cadastrar uma pessoa
+POST {{URL_BASE}}/person
 Content-Type: application/json
 
 {
-    "name": "Juca",
-    "email": "juca@gmail.com",
-    "password": "1234",
-    "birth": "2000-05-05"
+    "nome": "Zé Ramalhoa", "email": "zeramalhoa@gmail.com", "senha": "misteriosDaMeiaNoite",
+    "telefone": "+55 045 9 9912-3456", "nascimento": "1960-01-01T00:00", "perfil": "Cliente"
 }
-
-### Atualizar uma pessoa
-PUT {{URL}}/1520a44d-363e-4e31-b08b-2090dd395d0b
+### Cadastrar uma pessoa
+POST {{URL_BASE}}/person
 Content-Type: application/json
-Authorization: {{token}}
 
 {
-    "name": "Marcelo",
-    "email": "mar@gmail.com",
-    "username": "mar",
-    "password": "1234",
-    "birth": "2000-05-06"
+    "nome": "Michael Jacksona", "email": "mjacksona@gmail.com", "senha": "thriller1982",
+    "telefone": "+1 123-456-7890", "nascimento": "1958-08-29T00:00", "perfil": "Cliente"
+}
+### Cadastrar uma pessoa
+POST {{URL_BASE}}/person
+Content-Type: application/json
+
+{
+    "nome": "Tiririca", "email": "tiririca@email.com", "senha": "florentina2010",
+    "telefone": "+55 11 98765-4321", "nascimento": "1965-05-01T00:00", "perfil": "Cliente"
+}
+### Cadastrar uma pessoa
+POST {{URL_BASE}}/person
+Content-Type: application/json
+
+{
+    "nome": "Elon Musk", "email": "elonmusk@email.com", "senha": "spacex2023",
+    "telefone": "+1 987-654-3210", "nascimento": "1971-06-28T00:00", "perfil": "Cliente"
 }
 
 
-### Deletar uma pessoa
-DELETE {{URL}}/85bd872e-9017-4c5e-a218-446352253490
-Authorization: {{token}}
+// ==================================================
+// ====================== GET =======================
+// ==================================================
+### Obter todas as pessoas
+GET {{URL_BASE}}/person
+
+### Obter todas as pessoas por pagina
+GET {{URL_BASE}}/person/pages?size=2&page=2&sort=email&direction=DESC
+
+### Obter pessoa pelo ID
+GET {{URL_BASE}}/person/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
+
+
+// ==================================================
+// ====================== PUT =======================
+// ==================================================
+### Atualizar 1 pessoa
+PUT {{URL_BASE}}/person/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
+Content-Type: application/json
+
+{
+    "nome": "Alterado",
+    "email": "alterado@gmail.com",
+    "senha": "misteriosDaMeiaNoite",
+    "telefone": "+55 045 9 9912-3456",
+    "nascimento" : "1960-01-01T00:00",
+    "perfil" : "Cliente" 
+}
+
+// ==================================================
+// ===================== DELETE =====================
+// ==================================================
+### Deletar pessoa pelo id
+DELETE {{URL_BASE}}/person/264a82e8-e7cf-429c-84ac-42b61e3ba8b3

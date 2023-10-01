@@ -13,12 +13,12 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table
 @Setter
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@Table(name = "TB_Reserva") // caso nao inserir ele coloca o nome da classe
 public class Reserva extends BaseEntity {
     
     //dia do passeio
@@ -26,7 +26,7 @@ public class Reserva extends BaseEntity {
     private LocalDate dataReserva;
 
     @ManyToOne
-    @JoinColumn(name = "pagamento_id") //pagamento_id é a chave estrangeira importada da tabela Pagamento
+    @JoinColumn(name = "pagamento_id") //passeio_id é a chave estrangeira importada da tabela Passeio
     private Pagamento pagamento;
 
     @ManyToOne

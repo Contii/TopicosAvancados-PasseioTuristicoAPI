@@ -32,33 +32,31 @@ public class PacoteController {
 	@Autowired
 	PacoteRepository pacoteRepository;
 
-	/** Obtem todos os pacotes do banco em lista. */
+	/*============= Obtem todos os pacotes do banco em lista. =============*/
 	@GetMapping("/pages")
 	public ResponseEntity<Page<Pacote>> getAllPage(@PageableDefault(
 		page=0, size=10, sort="nome", direction = Sort.Direction.ASC) Pageable pageable)
 		{
 			return ResponseEntity.ok( pacoteRepository.findAll(pageable));
 		}
-
-	/** Obtem todos os pacotes do banco em lista. */
+	/**============= Obtem todos os pacotes do banco em lista. ============*/
 	@GetMapping(value = { "", "/" })
 		public List<Pacote> getAll() {
 			return pacoteRepository.findAll();
 		}
-
-	/** Obtem 1 pacote pelo ID. */
+	/**====================== Obtem 1 pacote pelo ID. =====================*/
 	@GetMapping("/{id}")
 	public ResponseEntity<Object> getById(@PathVariable String id) {
 		Optional<Pacote> pacoteOpt = pacoteRepository.findById(UUID.fromString(id));
 		return pacoteOpt.isPresent() ? ResponseEntity.ok(pacoteOpt.get()) : ResponseEntity.notFound().build();
 	}
 
-	/** Cria um pacote. */
+
+	/**========================= Cria um pacote. =========================*/
 	@PostMapping(value = { "", "/" })
 	public ResponseEntity<Object> create(@RequestBody PacoteDTO pacoteDTO) {
 		var pac = new Pacote(); // pacote para persistir no DB
 		BeanUtils.copyProperties(pacoteDTO, pac);
-
 		try {
 			return ResponseEntity.status(HttpStatus.CREATED).body( pacoteRepository.save(pac) );
 		} catch(Exception e) {
@@ -67,7 +65,7 @@ public class PacoteController {
 		}
 	}
 
-	/** Atualiza 1 pacote pelo ID. */
+	/**==================== Atualiza 1 pacote pelo ID. ====================*/
 	@PutMapping("/{id}")
 	public ResponseEntity<Object> update(@PathVariable String id, @RequestBody PacoteDTO pacoteDTO) {
 		UUID uuid;
@@ -77,18 +75,14 @@ public class PacoteController {
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
 		}
-		
 		//buscando no bando de dados
 		var pacote = pacoteRepository.findById(uuid);
-
 		//verifica se ele existe
 		if (pacote.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		var pacoteToUpdate = pacote.get();
 		BeanUtils.copyProperties(pacoteDTO, pacoteToUpdate);
 		pacoteToUpdate.setUpdatedAt(LocalDateTime.now());
-
 		try {
 			return ResponseEntity.ok().body( pacoteRepository.save(pacoteToUpdate) );
 		} catch(Exception e) {
@@ -97,7 +91,8 @@ public class PacoteController {
 		}
 	}
 
-	/** Deleta 1 pacote pelo ID. */
+
+	/**===================== Deleta 1 pacote pelo ID. =====================*/
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> delete(@PathVariable String id) {
 		UUID uuid;
@@ -107,18 +102,14 @@ public class PacoteController {
 			return ResponseEntity.badRequest()
 			.body("Formato de UUID inválido.");
 		}
-		
 		var pacote = pacoteRepository.findById(uuid);
-
 		if (pacote.isEmpty())
 			return ResponseEntity.notFound().build();
-
 		try {
 			pacoteRepository.delete(pacote.get());
 			return ResponseEntity.ok().build();
 		} catch(Exception e) {
 			e.printStackTrace();
-
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
 			.body(e.getMessage());
 		}

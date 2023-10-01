@@ -34,7 +34,7 @@ public class PersonDTO {
 
     private String telefone;
 
-    @PastOrPresent(message = "Não cadastramos FUturistas.")
+    @PastOrPresent(message = "Não cadastramos futuristas.")
     private LocalDateTime nascimento;
 
     private String perfil;

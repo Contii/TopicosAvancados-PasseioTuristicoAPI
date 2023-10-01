@@ -1,4 +1,4 @@
-package br.edu.utfpr.todo.model;
+package br.edu.utfpr.commerceapi.models;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -13,14 +13,14 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
 @Entity
-@Table(name = "tb_role")
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@Table(name = "TB_Role")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Role extends BasicEntity {
+public class Role extends BaseEntity {
     @Enumerated(EnumType.STRING)
     RoleName name;
 

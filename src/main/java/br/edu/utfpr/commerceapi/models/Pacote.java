@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -50,10 +52,7 @@ public class Pacote extends BaseEntity {
     private int vagasDisponiveis;
 
     //quais passeios este pacote inclui
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "pacote") // pacote é o atributo na classe Passeio
     private List<Passeio> passeios = new ArrayList<>();
-
-    //quantos pagamentos foram feitos
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "pacote") // pacote é o atributo na classe Pagamento
-    private List<Pagamento> pagamentos = new ArrayList<>();
 }

@@ -1,4 +1,4 @@
-package br.edu.utfpr.todo.dto;
+package br.edu.utfpr.commerceapi.dto;
 
 import lombok.Getter;
 

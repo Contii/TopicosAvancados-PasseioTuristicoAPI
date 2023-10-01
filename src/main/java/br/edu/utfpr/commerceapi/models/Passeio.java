@@ -1,13 +1,8 @@
 package br.edu.utfpr.commerceapi.models;
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 //importa todos os lombok
 import lombok.AllArgsConstructor;
@@ -51,8 +46,4 @@ public class Passeio extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "pacote_id") //pacote_id é a chave estrangeira importada da tabela Pacote
     private Pacote pacote;
-
-    //quais reservas este pacote esta
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "passeio") // pacote é o atributo na classe Reserva
-    private List<Reserva> reservas = new ArrayList<>();
 }

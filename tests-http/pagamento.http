@@ -1,32 +1,48 @@
 @URL_BASE=http://localhost:8080
-
-// ------------------ GET ------------------
-###Obter todos os pagamentos por pagina
-GET {{URL_BASE}}/pagamento/pages?size=20&page=2&sort=email&direction=DESC
-
-###Obter todos os pagamentos
-GET {{URL_BASE}}/pagamento
-
-###Obter pagamento pelo ID
-GET {{URL_BASE}}/pagamento/10
-
-
-// ------------------ PUT ------------------
-
-
-
-
-// ------------------ POST ------------------
-###Cadastrar um pagamento
+// ==================================================
+// ====================== POST ======================
+// ==================================================
+### Cadastrar um pagamento
 POST {{URL_BASE}}/pagamento
 Content-Type: application/json
 
 {
-    "valor": 555.44,
-    "formaPagamento" : "cartãoCrédito",
+    "formaPagamento" : "cartãoCrédito"
+}
+### Cadastrar um pagamento
+POST {{URL_BASE}}/pagamento
+Content-Type: application/json
+
+{
+    "formaPagamento" : "dinheiro"
 }
 
+// ==================================================
+// ====================== GET =======================
+// ==================================================
+### Obter todos os pagamentos
+GET {{URL_BASE}}/pagamento
+
+### Obter todos os pagamentos por pagina
+GET {{URL_BASE}}/pagamento/pages?size=20&page=2&direction=DESC
+
+### Obter pagamento pelo ID
+GET {{URL_BASE}}/pagamento/732f4f24-d3a5-4af2-84d0-8de23ef0a523
 
 
+// ==================================================
+// ====================== PUT =======================
+// ==================================================
+### Atualizar 1 pagamento
+PUT {{URL_BASE}}/pagamento/732f4f24-d3a5-4af2-84d0-8de23ef0a523
+Content-Type: application/json
 
-// ------------------ DELETE ------------------
+{
+    "formaPagamento" : "debito"
+}
+
+// ==================================================
+// ===================== DELETE =====================
+// ==================================================
+### Deletar pagamento pelo id
+DELETE {{URL_BASE}}/pagamento/732f4f24-d3a5-4af2-84d0-8de23ef0a523

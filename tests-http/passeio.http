@@ -1,35 +1,14 @@
 @URL_BASE=http://localhost:8080
-
-// ------------------ GET ------------------
-###Obter todos os passeios por pagina
-GET {{URL_BASE}}/passeio/pages?size=20&page=2&sort=email&direction=DESC
-
-###Obter todos os passeios
-GET {{URL_BASE}}/passeio
-
-###Obter passeio pelo ID
-GET {{URL_BASE}}/passeio/10
-
-
-// ------------------ PUT ------------------
-
-
-
-
-// ------------------ POST ------------------
+// ==================================================
+// ====================== POST ======================
+// ==================================================
 ###Cadastrar um passeio
 POST {{URL_BASE}}/passeio
 Content-Type: application/json
 
 {
     "nome": "Aventura Subaquática com Golfinhos Sorridentes",
-    "descricao": "Mergulhe nas águas cristalinas de um paraíso aquático,
-    onde você terá a chance de nadar ao lado de golfinhos sorridentes!
-    Este passeio único oferece a oportunidade de conhecer golfinhos,
-    que são verdadeiros mestres na arte da diversão. Desfrute de um mergulho
-    colorido com snorkel e aprenda a dançar com os golfinhos (eles têm ótimo senso de ritmo).
-    Após a aventura aquática, desfrute de um almoço gourmet à beira-mar e ganhe um diploma de
-    Amigo dos Golfinhos para mostrar aos amigos.",
+    "descricao": "Mergulhe nas águas cristalinas.",
     "valor": 777.99,
     "duracaoEmHoras": 4,
     "vagasDisponiveis": 5,
@@ -42,19 +21,43 @@ Content-Type: application/json
 
 {
     "nome": "Voo Panorâmico nas Cataratas do Iguaçu",
-    "descricao": "Prepare-se para uma experiência inesquecível enquanto sobrevoa as majestosas
-    Cataratas do Iguaçu em um emocionante passeio de helicóptero. Deixe-se impressionar
-    com as vistas deslumbrantes das poderosas quedas d'água, enquanto o helicóptero
-    serpenteia pelas impressionantes formações rochosas. Este passeio oferece uma perspectiva
-    única e emocionante das Cataratas do Iguaçu, onde você poderá capturar fotos espetaculares
-    para compartilhar com seus amigos e familiares.",
+    "descricao": "Prepare-se para uma experiência inesquecível.",
     "valor": 399.99,
     "duracaoEmHoras": 1,
     "vagasDisponiveis": 4,
     "classificacao": 16
 }
 
+// ==================================================
+// ====================== GET =======================
+// ==================================================
+### Obter todos os passeios
+GET {{URL_BASE}}/passeio
 
+### Obter todos os passeios por pagina
+GET {{URL_BASE}}/passeio/pages?size=20&page=2&direction=DESC
 
+### Obter passeios pelo ID
+GET {{URL_BASE}}/passeio/16afe4fa-4128-46c7-ac82-15b98674ceb8
 
-// ------------------ DELETE ------------------
+// ==================================================
+// ====================== PUT =======================
+// ==================================================
+### Atualizar 1 passeio
+PUT {{URL_BASE}}/passeio/16afe4fa-4128-46c7-ac82-15b98674ceb8
+Content-Type: application/json
+
+{
+    "nome": "Voo Alterado nas Cataratas do Alterado",
+    "descricao": "Alterado.",
+    "valor": 22,
+    "duracaoEmHoras": 2,
+    "vagasDisponiveis": 3,
+    "classificacao": 11
+}
+
+// ==================================================
+// ===================== DELETE =====================
+// ==================================================
+### Deletar passeio pelo id
+DELETE {{URL_BASE}}/passeio/16afe4fa-4128-46c7-ac82-15b98674ceb8
