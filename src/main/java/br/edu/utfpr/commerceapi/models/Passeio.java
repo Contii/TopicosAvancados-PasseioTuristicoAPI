@@ -45,5 +45,5 @@ public class Passeio extends BaseEntity {
     //qual pacote inclui este passeio
     @ManyToOne
     @JoinColumn(name = "pacote_id") //pacote_id é a chave estrangeira importada da tabela Pacote
-    private Pacote pacote;
+    private Pacote pacote; //trocar por UUID?
 }

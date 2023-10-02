@@ -2,12 +2,12 @@ package br.edu.utfpr.commerceapi.models;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collection;
+//import java.util.Collection;
 import java.util.List;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+// import org.springframework.security.core.userdetails.UserDetails;
+// import org.springframework.security.core.GrantedAuthority;
+// import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -35,7 +35,7 @@ import lombok.ToString;
 //jakarta - JPA
 @Entity
 @Table(name = "TB_Pessoa") // caso nao inserir ele coloca o nome da classe
-public class Person extends BaseEntity implements UserDetails {
+public class Person extends BaseEntity /* implements UserDetails */ {
    
     @Column(name = "name", length = 140, nullable = false)
     private String nome;
@@ -65,50 +65,50 @@ public class Person extends BaseEntity implements UserDetails {
         roles.add(role);
     }
 
-    @Override
-    @JsonIgnore
-    public String getUsername() {
-        return this.email;
-    }
+    // @Override
+    // @JsonIgnore
+    // public String getUsername() {
+    //     return this.email;
+    // }
 
-    public List<String> getRoles() {
-        return getAuthorities().stream().map(e -> e.getAuthority()).toList();
-    }
+    // public List<String> getRoles() {
+    //     return getAuthorities().stream().map(e -> e.getAuthority()).toList();
+    // }
 
-    @Override
-    @JsonIgnore
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        List<GrantedAuthority> authorities = new ArrayList<>();
-        this.roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
-        return authorities;
-    }
+    // @Override
+    // @JsonIgnore
+    // public Collection<? extends GrantedAuthority> getAuthorities() {
+    //     List<GrantedAuthority> authorities = new ArrayList<>();
+    //     this.roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
+    //     return authorities;
+    // }
 
-    @Override
-    @JsonIgnore
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+    // @Override
+    // @JsonIgnore
+    // public boolean isAccountNonExpired() {
+    //     return true;
+    // }
 
-    @Override
-    @JsonIgnore
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+    // @Override
+    // @JsonIgnore
+    // public boolean isAccountNonLocked() {
+    //     return true;
+    // }
 
-    @Override
-    @JsonIgnore
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+    // @Override
+    // @JsonIgnore
+    // public boolean isCredentialsNonExpired() {
+    //     return true;
+    // }
 
-    @Override
-    @JsonIgnore
-    public boolean isEnabled() {
-        return true;
-    }
+    // @Override
+    // @JsonIgnore
+    // public boolean isEnabled() {
+    //     return true;
+    // }
 
-    @Override
-    public String getPassword() {
-        throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
-    }
+    // @Override
+    // public String getPassword() {
+    //     throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
+    // }
 }

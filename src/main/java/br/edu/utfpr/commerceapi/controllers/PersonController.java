@@ -16,7 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.password.PasswordEncoder;
+//import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -36,8 +36,8 @@ import br.edu.utfpr.commerceapi.dto.PersonDTO;
 import br.edu.utfpr.commerceapi.models.Person;
 // import br.edu.utfpr.commerceapi.models.RoleName;
 import br.edu.utfpr.commerceapi.repositories.PersonRepository; // remover?
-import br.edu.utfpr.commerceapi.repositories.RoleRepository;
-import br.edu.utfpr.commerceapi.service.PersonService;
+//import br.edu.utfpr.commerceapi.repositories.RoleRepository;
+//import br.edu.utfpr.commerceapi.service.PersonService;
 
 // import io.swagger.v3.oas.annotations.Operation;
 // import io.swagger.v3.oas.annotations.media.Content;
@@ -56,20 +56,21 @@ public class PersonController {
 	@Autowired
 	PersonRepository personRepository; // remover?
 
-    @Autowired
-    private PersonService personService;
+    //@Autowired
+    //private PersonService personService;
 
-    @Autowired
-    private RoleRepository roleRepository;
+    // @Autowired
+    // private RoleRepository roleRepository;
 
-    @Autowired
-    private PasswordEncoder passwordEncoder;
+    // @Autowired
+    // private PasswordEncoder passwordEncoder;
+
 	/*============= Obtem todas as pessoas do banco em paginas. =============*/
 	@SecurityRequirement(name = "Authorization")
 	@GetMapping("/pages")
     public ResponseEntity<Page<Person>> getAll(
             @PageableDefault(page = 0, size = 10, sort = "name", direction = Sort.Direction.ASC) Pageable pageable) {
-        return ResponseEntity.ok().body(personService.findAll(pageable));
+        return ResponseEntity.ok().body(personRepository.findAll(pageable));
     }
 
 	// @SecurityRequirement(name = "Authorization")
@@ -128,10 +129,30 @@ public class PersonController {
     // }
 
 	/**===================== Obtem 1 pessoa pelo nome. ====================*/
+	// @SecurityRequirement(name = "Authorization")
+    // @GetMapping("/name/{name}")
+    // public ResponseEntity<Object> getByName(@PathVariable String name) {
+    //     return ResponseEntity.ok(personRepository.findByName(name));
+    // }
+
+	/**===================== Obtem 1 pessoa pelo email. ====================*/
 	@SecurityRequirement(name = "Authorization")
-    @GetMapping("/name/{name}")
-    public ResponseEntity<Object> getByName(@PathVariable String name) {
-        return ResponseEntity.ok(personService.findByName(name));
+    @GetMapping("/email/{email}")
+    public ResponseEntity<Object> findByEmail(@PathVariable String email) {
+		Optional<Person> person = personRepository.findByEmail(email);
+		if(person.isEmpty())
+			return ResponseEntity.notFound().build();
+		return ResponseEntity.ok(person.get());
+    }
+
+	/**===================== Obtem 1 pessoa pelo emailEsenha. ====================*/
+	@SecurityRequirement(name = "Authorization")
+    @GetMapping("/email/{email}/senha/{senha}")
+    public ResponseEntity<Object> findByEmailAndSenha(@PathVariable String email, @PathVariable String senha) {
+		Optional<Person> person = personRepository.findByEmailAndSenha(email, senha);
+		if(person.isEmpty())
+			return ResponseEntity.notFound().build();
+		return ResponseEntity.ok(person.get());
     }
 
 	/**========================= Cria uma pessoa. =========================*/

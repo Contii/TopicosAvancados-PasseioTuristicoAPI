@@ -32,7 +32,7 @@ public class PasseioController {
 	@Autowired
 	PasseioRepository passeioRepository;
 
-	/*============= Obtem todos os passeios do banco em lista. =============*/
+	/*============= Obtem todos os passeios do banco em paginas. =============*/
 	@GetMapping("/pages")
 	public ResponseEntity<Page<Passeio>> getAllPage(@PageableDefault(
 		page=0, size=10, sort="nome", direction = Sort.Direction.ASC) Pageable pageable)

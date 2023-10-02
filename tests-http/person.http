@@ -48,6 +48,8 @@ GET {{URL_BASE}}/person/pages?size=2&page=2&sort=email&direction=DESC
 ### Obter pessoa pelo ID
 GET {{URL_BASE}}/person/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
 
+### Obter pessoa pelo Email
+GET {{URL_BASE}}/person/email/mjacksona@gmail.com/senha/thriller1982
 
 // ==================================================
 // ====================== PUT =======================
