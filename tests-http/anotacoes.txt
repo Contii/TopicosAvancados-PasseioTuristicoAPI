@@ -1,7 +1,0 @@
-model person pediu o metodo password.
-
-controller person usando Service
-
-metodos indefinidos para o person repository.
-
-versao do gradle.
