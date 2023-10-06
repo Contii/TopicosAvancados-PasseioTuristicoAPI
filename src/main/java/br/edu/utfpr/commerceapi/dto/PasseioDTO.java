@@ -3,21 +3,17 @@ import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-//importa todos os lombok
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-//Lombok
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-// ou somente @Data
-
 public class PasseioDTO {
     @NotBlank(message = "campo nome obrigatório.")
     @Size(min=3, max=100, message = "Deve conter entre 3 e 100 caracteres.")

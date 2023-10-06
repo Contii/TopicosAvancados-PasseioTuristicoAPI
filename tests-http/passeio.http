@@ -1,63 +1,33 @@
 @URL_BASE=http://localhost:8080
-// ==================================================
-// ====================== POST ======================
-// ==================================================
-###Cadastrar um passeio
-POST {{URL_BASE}}/passeio
+### create
+POST {{URL_BASE}}/pacote
 Content-Type: application/json
 
 {
-    "nome": "Aventura Subaquática com Golfinhos Sorridentes",
-    "descricao": "Mergulhe nas águas cristalinas.",
-    "valor": 777.99,
-    "duracaoEmHoras": 4,
-    "vagasDisponiveis": 5,
-    "classificacao": 14
+    "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "valor": 55,
+    "duracaoEmDias": 5,  
+    "dataInicio": "2023-11-11",
+    "dataFim": "2024-01-01",
+    "vagasDisponiveis": "3"
 }
-
-###Cadastrar um passeio
-POST {{URL_BASE}}/passeio
+### getAll
+GET {{URL_BASE}}/pacote
+### getById
+GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+###
+PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
 Content-Type: application/json
 
 {
-    "nome": "Voo Panorâmico nas Cataratas do Iguaçu",
-    "descricao": "Prepare-se para uma experiência inesquecível.",
-    "valor": 399.99,
-    "duracaoEmHoras": 1,
-    "vagasDisponiveis": 4,
-    "classificacao": 16
+    "nome": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "valor": 55,
+    "duracaoEmDias": 5,  
+    "dataInicio": "2023-11-11",
+    "dataFim": "2024-01-01",
+    "vagasDisponiveis": "3"
 }
-
-// ==================================================
-// ====================== GET =======================
-// ==================================================
-### Obter todos os passeios
-GET {{URL_BASE}}/passeio
-
-### Obter todos os passeios por pagina
-GET {{URL_BASE}}/passeio/pages?size=20&page=2&direction=DESC
-
-### Obter passeios pelo ID
-GET {{URL_BASE}}/passeio/16afe4fa-4128-46c7-ac82-15b98674ceb8
-
-// ==================================================
-// ====================== PUT =======================
-// ==================================================
-### Atualizar 1 passeio
-PUT {{URL_BASE}}/passeio/16afe4fa-4128-46c7-ac82-15b98674ceb8
-Content-Type: application/json
-
-{
-    "nome": "Voo Alterado nas Cataratas do Alterado",
-    "descricao": "Alterado.",
-    "valor": 22,
-    "duracaoEmHoras": 2,
-    "vagasDisponiveis": 3,
-    "classificacao": 11
-}
-
-// ==================================================
-// ===================== DELETE =====================
-// ==================================================
-### Deletar passeio pelo id
-DELETE {{URL_BASE}}/passeio/16afe4fa-4128-46c7-ac82-15b98674ceb8
+###
+DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070

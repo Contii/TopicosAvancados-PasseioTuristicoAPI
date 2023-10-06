@@ -1,74 +1,33 @@
 @URL_BASE=http://localhost:8080
-// ==================================================
-// ====================== POST ======================
-// ==================================================
-### Cadastrar uma pessoa
-POST {{URL_BASE}}/person
+### create
+POST {{URL_BASE}}/pacote
 Content-Type: application/json
 
 {
-    "nome": "Zé Ramalhoa", "email": "zeramalhoa@gmail.com", "senha": "misteriosDaMeiaNoite",
-    "telefone": "+55 045 9 9912-3456", "nascimento": "1960-01-01T00:00", "perfil": "Cliente"
+    "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "valor": 55,
+    "duracaoEmDias": 5,  
+    "dataInicio": "2023-11-11",
+    "dataFim": "2024-01-01",
+    "vagasDisponiveis": "3"
 }
-### Cadastrar uma pessoa
-POST {{URL_BASE}}/person
+### getAll
+GET {{URL_BASE}}/pacote
+### getById
+GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+###
+PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
 Content-Type: application/json
 
 {
-    "nome": "Michael Jacksona", "email": "mjacksona@gmail.com", "senha": "thriller1982",
-    "telefone": "+1 123-456-7890", "nascimento": "1958-08-29T00:00", "perfil": "Cliente"
+    "nome": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "valor": 55,
+    "duracaoEmDias": 5,  
+    "dataInicio": "2023-11-11",
+    "dataFim": "2024-01-01",
+    "vagasDisponiveis": "3"
 }
-### Cadastrar uma pessoa
-POST {{URL_BASE}}/person
-Content-Type: application/json
-
-{
-    "nome": "Tiririca", "email": "tiririca@email.com", "senha": "florentina2010",
-    "telefone": "+55 11 98765-4321", "nascimento": "1965-05-01T00:00", "perfil": "Cliente"
-}
-### Cadastrar uma pessoa
-POST {{URL_BASE}}/person
-Content-Type: application/json
-
-{
-    "nome": "Elon Musk", "email": "elonmusk@email.com", "senha": "spacex2023",
-    "telefone": "+1 987-654-3210", "nascimento": "1971-06-28T00:00", "perfil": "Cliente"
-}
-
-
-// ==================================================
-// ====================== GET =======================
-// ==================================================
-### Obter todas as pessoas
-GET {{URL_BASE}}/person
-
-### Obter todas as pessoas por pagina
-GET {{URL_BASE}}/person/pages?size=2&page=2&sort=email&direction=DESC
-
-### Obter pessoa pelo ID
-GET {{URL_BASE}}/person/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
-
-### Obter pessoa pelo Email
-GET {{URL_BASE}}/person/email/mjacksona@gmail.com/senha/thriller1982
-
-// ==================================================
-// ====================== PUT =======================
-// ==================================================
-### Atualizar 1 pessoa
-PUT {{URL_BASE}}/person/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
-Content-Type: application/json
-
-{
-    "nome": "Alterado",
-    "email": "alterado@gmail.com",
-    "senha": "misteriosDaMeiaNoite",
-    "telefone": "+55 045 9 9912-3456",
-    "nascimento" : "1960-01-01T00:00",
-    "perfil" : "Cliente" 
-}
-
-// ==================================================
-// ===================== DELETE =====================
-// ==================================================
-### Deletar pessoa pelo id
-DELETE {{URL_BASE}}/person/264a82e8-e7cf-429c-84ac-42b61e3ba8b3
+###
+DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070

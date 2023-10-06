@@ -1,24 +1,21 @@
 package br.edu.utfpr.commerceapi.dto;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Size;
-//importa todos os lombok
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-//Lombok
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-// ou somente @Data
-
 public class PersonDTO {
     @NotBlank(message = "campo nome obrigatório.")
     @Size(min=3, max=100, message = "Deve conter entre 3 e 100 caracteres.")
@@ -35,7 +32,7 @@ public class PersonDTO {
     private String telefone;
 
     @PastOrPresent(message = "Não cadastramos futuristas.")
-    private LocalDateTime nascimento;
+    private LocalDate nascimento;
 
     private String perfil;
 }

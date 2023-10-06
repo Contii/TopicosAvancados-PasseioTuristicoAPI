@@ -1,68 +1,46 @@
 package br.edu.utfpr.commerceapi.service;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import br.edu.utfpr.commerceapi.dto.PersonDTO;
 import br.edu.utfpr.commerceapi.models.Person;
 import br.edu.utfpr.commerceapi.repositories.PersonRepository;
-import jakarta.transaction.Transactional;
 
 @Service
 public class PersonService {
-
     @Autowired
     private PersonRepository personRepository;
 
-    public Page<Person> findAll(Pageable pageable) {
-        return this.personRepository.findAll(pageable);
+    public List<Person> findAll() {
+        return personRepository.findAll();
     }
 
-    @Transactional
-    public Person save(Person person) {
+    public Person findById(UUID id) {
+        return personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person não encontrado"));
+    }
+
+    public Person create(PersonDTO personDto) {
+        Person person = new Person();
+        BeanUtils.copyProperties(personDto, person);
         return personRepository.save(person);
     }
 
-    public boolean existsByIdAndEmail(UUID id, String email) {
-        return false;
-        // return personRepository.existsByIdAndEmail(id, email);
+    public Person update(UUID id, PersonDTO personDto) {
+        Person person = personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person não encontrado"));
+        BeanUtils.copyProperties(personDto, person);
+        person.setUpdatedAt(LocalDateTime.now());
+        return personRepository.save(person);
     }
 
-    public boolean existsByEmail(String email) {
-        return false;
-        // return personRepository.existsByEmail(email);
-    }
-
-    public boolean existsByEmailAndPassword(String email, String password) {
-        return false;
-        // return personRepository.existsByEmailAndPassword(email, password);
-    }
-
-    public Optional<Person> findById(UUID id) {
-        return personRepository.findById(id);
-    }
-
-    public Optional<Person> findByEmail(String email) {
-        return personRepository.findByEmail(email);
-    }
-
-    @Transactional
-    public void delete(Person person) {
-        this.personRepository.delete(person);
-    }
-
-    public Optional<Person> findByEmailAndPassword(String email, String password) {
-        return null;
-        // return personRepository.findByEmailAndPassword(email, password);
-    }
-
-    public List<Person> findByName(String name) {
-        return null;
-        // return personRepository.findByName(name);
+    public Boolean delete(UUID id) {
+        personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person não encontrado"));
+        personRepository.deleteById(id);
+        return true;
     }
 }
