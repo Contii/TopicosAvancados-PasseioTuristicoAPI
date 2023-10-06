@@ -4,10 +4,10 @@ POST {{URL_BASE}}/pacote
 Content-Type: application/json
 
 {
-    "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "nome": "aaawwwwwwwwwwwwwwwwwwwwwwaa",
     "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
+    "valor": 55.0,
+    "duracaoEmDias": 5.0,  
     "dataInicio": "2023-11-11",
     "dataFim": "2024-01-01",
     "vagasDisponiveis": "3"

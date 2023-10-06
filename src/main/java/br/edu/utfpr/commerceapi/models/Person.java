@@ -46,6 +46,7 @@ public class Person extends BaseEntity {
     @Column(length = 20, nullable = false)
     private String perfil;
 
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Role> roles = new ArrayList<>();
 

@@ -1,8 +1,6 @@
 package br.edu.utfpr.commerceapi.controllers;
 
-import java.util.List;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,11 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.edu.utfpr.commerceapi.dto.ReservaDTO;
-import br.edu.utfpr.commerceapi.dto.ReservaDTO;
-import br.edu.utfpr.commerceapi.models.Reserva;
-import br.edu.utfpr.commerceapi.service.ReservaService;
 import br.edu.utfpr.commerceapi.service.ReservaService;
 import jakarta.validation.Valid;
 
@@ -39,12 +33,12 @@ public class ReservaController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody ReservaDTO reservaDto) {
+    public ResponseEntity<Object> create(@Valid @RequestBody ReservaDTO reservaDto) {
         return ResponseEntity.ok(reservaService.create(reservaDto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody ReservaDTO reservaDto) {
+    public ResponseEntity<Object> update(@PathVariable String id, @Valid @RequestBody ReservaDTO reservaDto) {
         return ResponseEntity.ok(reservaService.update(UUID.fromString(id), reservaDto));
     }
 

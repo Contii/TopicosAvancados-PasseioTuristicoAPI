@@ -1,33 +1,21 @@
 @URL_BASE=http://localhost:8080
 ### create
-POST {{URL_BASE}}/pacote
+POST {{URL_BASE}}/reserva
 Content-Type: application/json
 
 {
-    "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "dataReserva": "3333-01-01"
 }
 ### getAll
-GET {{URL_BASE}}/pacote
+GET {{URL_BASE}}/reserva
 ### getById
-GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+GET {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702
 ###
-PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+PUT {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702
 Content-Type: application/json
 
 {
-    "nome": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "dataReserva": "2024-02-01"
 }
 ###
-DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070
+DELETE {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702

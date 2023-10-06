@@ -1,6 +1,5 @@
 package br.edu.utfpr.commerceapi.dto;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PastOrPresent;

@@ -1,8 +1,6 @@
 package br.edu.utfpr.commerceapi.controllers;
 
-import java.util.List;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,9 +12,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.edu.utfpr.commerceapi.dto.PersonDTO;
-import br.edu.utfpr.commerceapi.models.Person;
 import br.edu.utfpr.commerceapi.service.PersonService;
 import jakarta.validation.Valid;
 
@@ -40,12 +36,12 @@ public class PersonController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody PersonDTO personDto) {
+    public ResponseEntity<Object> create(@Valid @RequestBody PersonDTO personDto) {
         return ResponseEntity.ok(personService.create(personDto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody PersonDTO personDto) {
+    public ResponseEntity<Object> update(@PathVariable String id, @Valid @RequestBody PersonDTO personDto) {
         return ResponseEntity.ok(personService.update(UUID.fromString(id), personDto));
     }
 

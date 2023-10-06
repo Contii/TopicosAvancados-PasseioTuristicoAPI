@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.edu.utfpr.commerceapi.dto.PacoteDTO;
 import br.edu.utfpr.commerceapi.service.PacoteService;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/pacote")
@@ -34,12 +35,12 @@ public class PacoteController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody PacoteDTO pacoteDto) {
+    public ResponseEntity<Object> create(@Valid @RequestBody PacoteDTO pacoteDto) {
         return ResponseEntity.ok(pacoteService.create(pacoteDto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody PacoteDTO pacoteDto) {
+    public ResponseEntity<Object> update(@PathVariable String id, @Valid @RequestBody PacoteDTO pacoteDto) {
         return ResponseEntity.ok(pacoteService.update(UUID.fromString(id), pacoteDto));
     }
 

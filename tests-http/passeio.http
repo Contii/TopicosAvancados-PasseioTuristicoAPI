@@ -1,33 +1,31 @@
 @URL_BASE=http://localhost:8080
 ### create
-POST {{URL_BASE}}/pacote
+POST {{URL_BASE}}/passeio
 Content-Type: application/json
 
 {
     "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "duracaoEmHoras": 5,  
+    "vagasDisponiveis": "2",
+    "classificacao": "12"
 }
 ### getAll
-GET {{URL_BASE}}/pacote
+GET {{URL_BASE}}/passeio
 ### getById
-GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+GET {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe
 ###
-PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+PUT {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe
 Content-Type: application/json
 
 {
-    "nome": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "nome": "bbbbbbbbbbbbbbbbbbbbbbbbbb",
     "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
     "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "duracaoEmHoras": 5,  
+    "vagasDisponiveis": "2",
+    "classificacao": "12"
 }
 ###
-DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070
+DELETE {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe

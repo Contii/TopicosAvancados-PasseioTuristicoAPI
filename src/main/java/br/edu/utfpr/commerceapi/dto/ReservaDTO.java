@@ -1,7 +1,7 @@
 package br.edu.utfpr.commerceapi.dto;
 import java.time.LocalDate;
 import jakarta.validation.constraints.FutureOrPresent;
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +14,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 public class ReservaDTO {
-    @NotBlank(message = "campo dataReserva obrigatório.")
+    @NotNull(message = "campo dataReserva obrigatório.")
     @FutureOrPresent(message = "Deve ser no presente ou futuro.")
     private LocalDate dataReserva;
 }

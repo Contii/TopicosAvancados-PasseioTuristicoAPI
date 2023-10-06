@@ -1,33 +1,31 @@
 @URL_BASE=http://localhost:8080
 ### create
-POST {{URL_BASE}}/pacote
+POST {{URL_BASE}}/person
 Content-Type: application/json
 
 {
-    "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "nome": "aaaaaaaaaaaaaaa",
+    "email": "aas123232sa@hsshh.com",
+    "senha": "12346123123",
+    "telefone": "12341231236",  
+    "nascimento": "2001-11-11",
+    "perfil": "Cliente"
 }
 ### getAll
-GET {{URL_BASE}}/pacote
+GET {{URL_BASE}}/person
 ### getById
-GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+GET {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
 ###
-PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+PUT {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
 Content-Type: application/json
 
 {
-    "nome": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "nome": "114fawer2134",
+    "email": "aassa@hsshh.com",
+    "senha": "12346123123",
+    "telefone": "12341231236",  
+    "nascimento": "2001-11-11",
+    "perfil": "Cliente"
 }
 ###
-DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070
+DELETE {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865

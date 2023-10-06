@@ -1,8 +1,6 @@
 package br.edu.utfpr.commerceapi.controllers;
 
-import java.util.List;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,9 +11,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import br.edu.utfpr.commerceapi.dto.PasseioDTO;
-import br.edu.utfpr.commerceapi.models.Passeio;
 import br.edu.utfpr.commerceapi.service.PasseioService;
 import jakarta.validation.Valid;
 
@@ -37,12 +33,12 @@ public class PasseioController {
     }
 
     @PostMapping()
-    public ResponseEntity<Object> create(@RequestBody PasseioDTO passeioDto) {
+    public ResponseEntity<Object> create(@Valid @RequestBody PasseioDTO passeioDto) {
         return ResponseEntity.ok(passeioService.create(passeioDto));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable String id, @RequestBody PasseioDTO passeioDto) {
+    public ResponseEntity<Object> update(@PathVariable String id, @Valid @RequestBody PasseioDTO passeioDto) {
         return ResponseEntity.ok(passeioService.update(UUID.fromString(id), passeioDto));
     }
 

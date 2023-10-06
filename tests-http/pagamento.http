@@ -1,33 +1,21 @@
 @URL_BASE=http://localhost:8080
 ### create
-POST {{URL_BASE}}/pacote
+POST {{URL_BASE}}/pagamento
 Content-Type: application/json
 
 {
-    "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "formaPagamento": "Crédito"
 }
 ### getAll
-GET {{URL_BASE}}/pacote
+GET {{URL_BASE}}/pagamento
 ### getById
-GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+GET {{URL_BASE}}/pagamento/0a8dcd94-275e-4224-a9c3-ee86915358bc
 ###
-PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+PUT {{URL_BASE}}/pagamento/9878a38e-fdfd-406e-91e5-0f6865199c61
 Content-Type: application/json
 
 {
-    "nome": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "formaPagamento": "Créditobb"
 }
 ###
-DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070
+DELETE {{URL_BASE}}/pagamento/9878a38e-fdfd-406e-91e5-0f6865199c61
