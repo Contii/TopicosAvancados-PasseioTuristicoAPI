@@ -1,5 +1,5 @@
 @URL_BASE=http://localhost:8080
-### create
+### Create
 POST {{URL_BASE}}/person
 Content-Type: application/json
 
@@ -11,11 +11,14 @@ Content-Type: application/json
     "nascimento": "2001-11-11",
     "perfil": "Cliente"
 }
-### getAll
+
+### GetAll
 GET {{URL_BASE}}/person
-### getById
+
+### GetById
 GET {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
-###
+
+### Put
 PUT {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
 Content-Type: application/json
 
@@ -27,5 +30,6 @@ Content-Type: application/json
     "nascimento": "2001-11-11",
     "perfil": "Cliente"
 }
-###
+
+### Delete
 DELETE {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865

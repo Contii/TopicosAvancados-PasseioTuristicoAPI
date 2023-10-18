@@ -2,6 +2,7 @@ package br.edu.utfpr.commerceapi.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
@@ -25,6 +26,30 @@ public class PersonService {
         return personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person não encontrado"));
     }
 
+    public Optional<Person> findByEmail(String email) {
+        return personRepository.findByEmail(email);
+    }
+    
+    public Optional<Person> findByEmailAndPassword(String email, String password) {
+        return personRepository.findByEmailAndPassword(email, password);
+    }
+
+    public List<Person> findByName(String name) {
+        return personRepository.findByName(name);
+    }
+
+    public boolean existsByEmail(String email) {
+        return personRepository.existsByEmail(email);
+    }
+
+    public boolean existsByIdAndEmail(UUID id, String email) {
+        return personRepository.existsByIdAndEmail(id, email);
+    }
+
+    public boolean existsByEmailAndPassword(String email, String password) {
+        return personRepository.existsByEmailAndPassword(email, password);
+    }
+
     public Person create(PersonDTO personDto) {
         Person person = new Person();
         BeanUtils.copyProperties(personDto, person);
@@ -42,5 +67,10 @@ public class PersonService {
         personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person não encontrado"));
         personRepository.deleteById(id);
         return true;
+    }
+
+    //@Transactional
+    public Person save(Person person) {
+        return personRepository.save(person);
     }
 }

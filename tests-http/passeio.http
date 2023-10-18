@@ -1,5 +1,7 @@
 @URL_BASE=http://localhost:8080
-### create
+
+
+### Create
 POST {{URL_BASE}}/passeio
 Content-Type: application/json
 
@@ -11,11 +13,14 @@ Content-Type: application/json
     "vagasDisponiveis": "2",
     "classificacao": "12"
 }
-### getAll
+
+### GetAll
 GET {{URL_BASE}}/passeio
-### getById
+
+### GetById
 GET {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe
-###
+
+### Put
 PUT {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe
 Content-Type: application/json
 
@@ -27,5 +32,6 @@ Content-Type: application/json
     "vagasDisponiveis": "2",
     "classificacao": "12"
 }
-###
+
+### Delete
 DELETE {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe

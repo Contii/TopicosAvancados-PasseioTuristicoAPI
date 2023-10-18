@@ -1,0 +1,22 @@
+Person model está com erro em UserDetails (verificar os metodos com erro tambem)
+arrumar tratativa de autenticacao em Controller Person
+verificar o get all do Controller Person (comentario)
+response no final do Controller Person deveria ser em service?
+tratar o existsbyemail no perosn service/controller
+
+
+ajeitar o post de person para o encoder.
+
+Acrescentar tratativa de autenticação em outros Controllers? como?
+
+como o auth funciona?
+
+arrumar swagger (como o indexcontroller funciona?)
+
+pra que serve o message e avaliação nesta api?
+
+como o role e rolename vao ser usados? Auth tmb.
+
+testar http com token.
+
+o que é o @transactional?

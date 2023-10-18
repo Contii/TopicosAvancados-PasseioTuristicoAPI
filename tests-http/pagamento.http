@@ -1,21 +1,26 @@
 @URL_BASE=http://localhost:8080
-### create
+
+### Create
 POST {{URL_BASE}}/pagamento
 Content-Type: application/json
 
 {
     "formaPagamento": "Crédito"
 }
-### getAll
+
+### GetAll
 GET {{URL_BASE}}/pagamento
-### getById
+
+### GetById
 GET {{URL_BASE}}/pagamento/0a8dcd94-275e-4224-a9c3-ee86915358bc
-###
+
+### Put
 PUT {{URL_BASE}}/pagamento/9878a38e-fdfd-406e-91e5-0f6865199c61
 Content-Type: application/json
 
 {
     "formaPagamento": "Créditobb"
 }
-###
+
+### Delete
 DELETE {{URL_BASE}}/pagamento/9878a38e-fdfd-406e-91e5-0f6865199c61

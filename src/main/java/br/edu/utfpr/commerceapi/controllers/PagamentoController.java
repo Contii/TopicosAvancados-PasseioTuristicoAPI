@@ -1,6 +1,7 @@
 package br.edu.utfpr.commerceapi.controllers;
 
 import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,8 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import br.edu.utfpr.commerceapi.dto.PagamentoDTO;
 import br.edu.utfpr.commerceapi.service.PagamentoService;
+
 import jakarta.validation.Valid;
 
 @RestController

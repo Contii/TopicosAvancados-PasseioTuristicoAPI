@@ -1,5 +1,6 @@
 @URL_BASE=http://localhost:8080
-### create
+
+### Create
 POST {{URL_BASE}}/pacote
 Content-Type: application/json
 
@@ -12,11 +13,14 @@ Content-Type: application/json
     "dataFim": "2024-01-01",
     "vagasDisponiveis": "3"
 }
-### getAll
+
+### GetAll
 GET {{URL_BASE}}/pacote
-### getById
+
+### GetById
 GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
-###
+
+### Put
 PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
 Content-Type: application/json
 
@@ -29,5 +33,6 @@ Content-Type: application/json
     "dataFim": "2024-01-01",
     "vagasDisponiveis": "3"
 }
-###
+
+### Delete
 DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070

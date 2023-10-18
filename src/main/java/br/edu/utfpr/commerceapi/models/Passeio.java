@@ -1,4 +1,5 @@
 package br.edu.utfpr.commerceapi.models;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -15,26 +16,27 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+
 @Entity
-@Table
+@Table(name = "TB_Passeio")
 public class Passeio extends BaseEntity {
    
-    @Column(length = 140, nullable = false)
+    @Column(name = "name", length = 140, nullable = false)
     private String nome;
 
-    @Column(length = 500, nullable = false)
+    @Column(name = "descricao", length = 500, nullable = false)
     private String descricao;
 
-    @Column(nullable = false)
+    @Column(name = "valor", nullable = false)
     private float valor;
 
-    @Column(nullable = false)
+    @Column(name = "duracaoEmHoras", nullable = false)
     private int duracaoEmHoras;
 
-    @Column(nullable = false)
+    @Column(name = "vagasDisponiveis", nullable = false)
     private int vagasDisponiveis;
 
-    @Column(nullable = false)
+    @Column(name = "classificacao", nullable = false)
     private int classificacao;
 
     @ManyToOne

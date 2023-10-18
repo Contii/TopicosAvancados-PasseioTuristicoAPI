@@ -1,0 +1,43 @@
+@URL = http://localhost:8080
+
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjRhYmFmYTJmLWFiMDItNGNiNC1iNDk3LTA2OWM4NDYyMTg1MyIsInVzZXJuYW1lIjoiYWRtaW5AYWRtaW4uY29tIiwiaWF0IjoxNjgxOTkzMDA4LCJleHAiOjE2ODE5OTY2MDgsImlzcyI6IlVURlBSIn0.Vy1Rz_dU2K28CaX9yEUjS5zJ4tTuDckos4Use93PeZ8
+
+
+### Create
+POST {{URL}}/person
+Content-Type: application/json
+
+{
+    "nome": "aaaaaaaaaaaaaaa",
+    "email": "aas123232sa@hsshh.com",
+    "senha": "12346123123",
+    "telefone": "12341231236",  
+    "nascimento": "2001-11-11",
+    "perfil": "Cliente"
+}
+
+### GetAll
+GET {{URL}}/person
+Authorization: {{token}}
+
+### GetById
+GET {{URL}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
+Authorization: {{token}}
+
+### Put
+PUT {{URL}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "nome": "114fawer2134",
+    "email": "aassa@hsshh.com",
+    "senha": "12346123123",
+    "telefone": "12341231236",  
+    "nascimento": "2001-11-11",
+    "perfil": "Cliente"
+}
+
+### Delete
+DELETE {{URL}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
+Authorization: {{token}}

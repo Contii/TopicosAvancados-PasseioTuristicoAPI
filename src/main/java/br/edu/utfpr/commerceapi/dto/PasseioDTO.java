@@ -1,9 +1,11 @@
 package br.edu.utfpr.commerceapi.dto;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,6 +17,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+
+
 public class PasseioDTO {
     @NotBlank(message = "campo nome obrigatório.")
     @Size(min=3, max=100, message = "Deve conter entre 3 e 100 caracteres.")

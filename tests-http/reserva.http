@@ -1,21 +1,26 @@
 @URL_BASE=http://localhost:8080
-### create
+
+### Create
 POST {{URL_BASE}}/reserva
 Content-Type: application/json
 
 {
     "dataReserva": "3333-01-01"
 }
-### getAll
+
+### GetAll
 GET {{URL_BASE}}/reserva
-### getById
+
+### GetById
 GET {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702
-###
+
+### Put
 PUT {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702
 Content-Type: application/json
 
 {
     "dataReserva": "2024-02-01"
 }
-###
+
+### Delete
 DELETE {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702

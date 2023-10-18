@@ -1,4 +1,6 @@
 package br.edu.utfpr.commerceapi.models;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -14,9 +16,12 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+
 @Entity
-@Table
+@Table(name = "TB_Pagamento")
 public class Pagamento extends BaseEntity {
+
+    @Column(name = "formaPagamento", length = 20, nullable = false)
     private String formaPagamento;
 
     @ManyToOne
