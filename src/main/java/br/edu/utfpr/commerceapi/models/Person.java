@@ -25,18 +25,15 @@ import lombok.Setter;
 import lombok.ToString;
 // Ou somente import Lombok.*;
 
+
 //Lombok
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-// Ou somente @Data
-
-
-//jakarta - JPA
 @Entity
-@Table(name = "TB_Pessoa")
+@Table(name = "tb_pessoa")
 public class Person extends BaseEntity implements UserDetails{
    
     @Column(name = "name", length = 140, nullable = false)
@@ -46,7 +43,7 @@ public class Person extends BaseEntity implements UserDetails{
     private String email;
 
     @JsonIgnore
-    @Column(name = "password", length = 50, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "phone", length = 20, nullable = true)
@@ -55,8 +52,8 @@ public class Person extends BaseEntity implements UserDetails{
     @Column(name = "birth", nullable = true)
     private LocalDate birth;
 
-    @Column(name = "profile", length = 20, nullable = false) // cliente ou agencia
-    private String pofile;
+    @Column(name = "profile", length = 20, nullable = true) // cliente ou agencia
+    private String profile;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
@@ -106,10 +103,5 @@ public class Person extends BaseEntity implements UserDetails{
     @JsonIgnore
     public boolean isEnabled() {
         return true;
-    }
-
-    @Override
-    public String getPassword() {
-        throw new UnsupportedOperationException("Unimplemented method 'getPassword'");
     }
 }

@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * Classe que representa uma mensagem de resposta para os clientes HTTP.
+ * isso permite que o controller formate uma resposta personalizada ao cliente
  */
 @Getter
 public class Message {

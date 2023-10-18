@@ -1,15 +1,18 @@
 @URL_BASE=http://localhost:8080
+
+@t
+
 ### Create
 POST {{URL_BASE}}/person
 Content-Type: application/json
 
 {
-    "nome": "aaaaaaaaaaaaaaa",
-    "email": "aas123232sa@hsshh.com",
-    "senha": "12346123123",
-    "telefone": "12341231236",  
-    "nascimento": "2001-11-11",
-    "perfil": "Cliente"
+    "name": "aaaaaaaaaaaaaaa",
+    "email": "a@a.com",
+    "password": "1231",
+    "phone": "12341231236",  
+    "birth": "2001-11-11",
+    "profile": "Cliente"
 }
 
 ### GetAll

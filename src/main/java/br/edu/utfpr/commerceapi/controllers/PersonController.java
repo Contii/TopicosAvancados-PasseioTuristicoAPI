@@ -31,49 +31,43 @@ import br.edu.utfpr.commerceapi.models.Person;
 import br.edu.utfpr.commerceapi.models.RoleName;
 import br.edu.utfpr.commerceapi.repositories.RoleRepository;
 import br.edu.utfpr.commerceapi.service.PersonService;
-
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
 import jakarta.validation.Valid;
-
 
 @RestController
 @RequestMapping("/person")
 @CrossOrigin(origins = "*")
 @Tag(name = "Person", description = "Person resource endpoints")
 public class PersonController {
-	@Autowired
+    @Autowired
     private PersonService personService;
 
     @Autowired
-    private RoleRepository roleRepository;  
-    
+    private RoleRepository roleRepository;
+
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    //@SecurityRequirement(name = "Authorization")
-    @GetMapping(value = {"", "/"})
+    @SecurityRequirement(name = "Authorization")
+    @GetMapping(value = { "", "/" })
     public ResponseEntity<Object> getAll() {
         return ResponseEntity.ok(personService.findAll());
         // try {
-        //     return ResponseEntity.ok(personService.findAll());
-	    // } catch (Exception e) {
-		//     return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-		// }
+        // return ResponseEntity.ok(personService.findAll());
+        // } catch (Exception e) {
+        // return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        // }
     }
 
-    // @SecurityRequirement(name = "Authorization")
+    @SecurityRequirement(name = "Authorization")
     @GetMapping("/{id}")
     public ResponseEntity<Object> getById(@PathVariable String id) {
         UUID uuid = UUID.fromString(id);
-        return ResponseEntity.ok(personService.findById(uuid));
+        var res = personService.findById(uuid);
+        return res.isPresent() ? ResponseEntity.ok(res.get()) : ResponseEntity.status(404).body(Message.b("pessoa não encontrada")).build();
     }
-
-    // // @SecurityRequirement(name = "Authorization")
-    // @PostMapping()
-    // public ResponseEntity<Object> create(@Valid @RequestBody PersonDTO personDto) {
-    //     return ResponseEntity.ok(personService.create(personDto));
-    // }
 
     @PostMapping
     public ResponseEntity<Object> create(@RequestBody PersonDTO personDTO) {
@@ -92,9 +86,9 @@ public class PersonController {
         person.setPassword(passwordEncoder.encode(personDTO.getPassword()));
 
         // Adicionando o papel padrão para a pessoa
-        var role = roleRepository.findByName(RoleName.USER);
-        if (role.isPresent())
-            person.addRole(role.get());
+        // var role = roleRepository.findByName(RoleName.USER);
+        // if (role.isPresent())
+        // person.addRole(role.get());
 
         try {
             return ResponseEntity
@@ -106,18 +100,17 @@ public class PersonController {
         }
     }
 
-    // @SecurityRequirement(name = "Authorization")
+    @SecurityRequirement(name = "Authorization")
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable String id, @Valid @RequestBody PersonDTO personDto) {
         return ResponseEntity.ok(personService.update(UUID.fromString(id), personDto));
     }
 
-    // @SecurityRequirement(name = "Authorization")
+    @SecurityRequirement(name = "Authorization")
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable String id) {
         return ResponseEntity.ok(personService.delete(UUID.fromString(id)));
     }
-
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

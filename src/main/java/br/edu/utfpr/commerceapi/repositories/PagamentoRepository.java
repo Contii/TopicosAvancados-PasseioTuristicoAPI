@@ -4,7 +4,6 @@ import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 import br.edu.utfpr.commerceapi.models.Pagamento;
 
-public interface PagamentoRepository
-        extends JpaRepository<Pagamento, UUID> {
+public interface PagamentoRepository extends JpaRepository<Pagamento, UUID> {
 
-        }
+}

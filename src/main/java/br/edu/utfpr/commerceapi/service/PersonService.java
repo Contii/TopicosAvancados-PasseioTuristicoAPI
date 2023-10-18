@@ -22,8 +22,9 @@ public class PersonService {
         return personRepository.findAll();
     }
 
-    public Person findById(UUID id) {
-        return personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person não encontrado"));
+    public Optional<Person> findById(UUID id) {
+        return personRepository.findById(id);
+        //.orElseThrow(() -> new RuntimeException("Person não encontrado"));
     }
 
     public Optional<Person> findByEmail(String email) {
@@ -63,13 +64,14 @@ public class PersonService {
         return personRepository.save(person);
     }
 
+    //@transactional
     public Boolean delete(UUID id) {
         personRepository.findById(id).orElseThrow(() -> new RuntimeException("Person não encontrado"));
         personRepository.deleteById(id);
         return true;
     }
 
-    //@Transactional
+    //@transactional
     public Person save(Person person) {
         return personRepository.save(person);
     }
