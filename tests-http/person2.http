@@ -2,7 +2,7 @@
 
 @token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjU0YWViNmUzLTA2Y2ItNGNjNC05OTFiLTFjOGZjYjg5MWU3NiIsInVzZXJuYW1lIjoiZW1haWxAZW1haWwuY29tIiwiaWF0IjoxNjk4Mjg3Mzc4LCJleHAiOjE2OTgyOTA5NzgsImlzcyI6IlVURlBSIn0._KhDbqKkqLVyhADs2UCbyrd99GsZc_VAAQAUntCg7N4
 
-### Create
+### Create 
 POST {{URL}}/person
 Content-Type: application/json
 
