@@ -66,7 +66,7 @@ public class PersonController {
     public ResponseEntity<Object> getById(@PathVariable String id) {
         UUID uuid = UUID.fromString(id);
         var res = personService.findById(uuid);
-        return res.isPresent() ? ResponseEntity.ok(res.get()) : ResponseEntity.status(404).body(Message.b("pessoa não encontrada")).build();
+        return res.isPresent() ? ResponseEntity.ok(res.get()) : ResponseEntity.status(404).body(Message.b("pessoa não encontrada"));
     }
 
     @PostMapping
@@ -86,9 +86,9 @@ public class PersonController {
         person.setPassword(passwordEncoder.encode(personDTO.getPassword()));
 
         // Adicionando o papel padrão para a pessoa
-        // var role = roleRepository.findByName(RoleName.USER);
-        // if (role.isPresent())
-        // person.addRole(role.get());
+        var role = roleRepository.findByName(RoleName.USER);
+        if (role.isPresent())
+        person.addRole(role.get());
 
         try {
             return ResponseEntity

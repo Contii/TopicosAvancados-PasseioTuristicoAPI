@@ -1,16 +1,16 @@
 @URL = http://localhost:8080
 
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6ImIyOGExY2IxLWFiNzQtNGIwOS1iZTgwLTg0NzczZDU2MDY5NyIsInVzZXJuYW1lIjoiYUBhLmNvbSIsImlhdCI6MTY5NzY1MTczNiwiZXhwIjoxNjk3NjU1MzM2LCJpc3MiOiJVVEZQUiJ9.XFGnfBg4rNC8wiKlvzFDzaOoypAFhqhQFzXu7i3716s
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjU0YWViNmUzLTA2Y2ItNGNjNC05OTFiLTFjOGZjYjg5MWU3NiIsInVzZXJuYW1lIjoiZW1haWxAZW1haWwuY29tIiwiaWF0IjoxNjk4Mjg3Mzc4LCJleHAiOjE2OTgyOTA5NzgsImlzcyI6IlVURlBSIn0._KhDbqKkqLVyhADs2UCbyrd99GsZc_VAAQAUntCg7N4
 
 ### Create
 POST {{URL}}/person
 Content-Type: application/json
 
 {
-    "name": "aaaaaaaaaaaaaaa",
-    "email": "aas123232sa@hsshh.com",
-    "password": "12346123123",
-    "phone": "12341231236",  
+    "name": "email1234",
+    "email": "email@email.com",
+    "password": "12341234",
+    "phone": "123443211234",  
     "birth": "2001-11-11",
     "profile": "Cliente"
 }
@@ -23,7 +23,7 @@ Authorization: {{token}}
 ### GetById
 GET {{URL}}/person/00bf7b0d-34ef-4dde-9c71-a3c8b6ac65d2
 Authorization: {{token}}
-
+ 
 ### Put
 PUT {{URL}}/person/00bf7b0d-34ef-4dde-9c71-a3c8b6ac75d2
 Content-Type: application/json

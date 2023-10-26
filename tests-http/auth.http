@@ -8,6 +8,6 @@ POST {{URL}}
 Content-Type: application/json
 
 {
-    "username": "a@a.com",
-    "password": "1231"
+    "username": "email@email.com",
+    "password": "12341234"
 }
