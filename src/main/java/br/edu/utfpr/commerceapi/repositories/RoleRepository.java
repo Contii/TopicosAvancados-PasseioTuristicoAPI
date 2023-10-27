@@ -5,11 +5,12 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import br.edu.utfpr.commerceapi.models.Role;
 import br.edu.utfpr.commerceapi.models.RoleName;
 
 public interface RoleRepository extends JpaRepository<Role, UUID> {
         @Query("FROM Role r WHERE r.name = :name")
-        public Optional<Role> findByName(RoleName name);
+        public Optional<Role> findByName(@Param("name") RoleName name);
 }

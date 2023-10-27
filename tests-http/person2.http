@@ -1,14 +1,14 @@
 @URL = http://localhost:8080
 
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjU0YWViNmUzLTA2Y2ItNGNjNC05OTFiLTFjOGZjYjg5MWU3NiIsInVzZXJuYW1lIjoiZW1haWxAZW1haWwuY29tIiwiaWF0IjoxNjk4Mjg3Mzc4LCJleHAiOjE2OTgyOTA5NzgsImlzcyI6IlVURlBSIn0._KhDbqKkqLVyhADs2UCbyrd99GsZc_VAAQAUntCg7N4
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjM4MGM4NGUzLTVlYjktNDI5NS1hOTAxLTdhZDMwOGE5ZTcxYiIsInVzZXJuYW1lIjoidXN1YXJpb0BlbWFpbC5jb20iLCJpYXQiOjE2OTg0MDg2NjcsImV4cCI6MTY5ODQxMjI2NywiaXNzIjoiVVRGUFIifQ.fnz9ys9J1SOM2EviJiNwSlKAoaEfYrgL25VHDqFIfME
 
 ### Create 
 POST {{URL}}/person
 Content-Type: application/json
 
 {
-    "name": "email1234",
-    "email": "email@email.com",
+    "name": "usuario",
+    "email": "usuario@email.com",
     "password": "12341234",
     "phone": "123443211234",  
     "birth": "2001-11-11",
@@ -19,19 +19,18 @@ Content-Type: application/json
 GET {{URL}}/person
 Authorization: {{token}}
 
-
 ### GetById
-GET {{URL}}/person/00bf7b0d-34ef-4dde-9c71-a3c8b6ac65d2
+GET {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
 Authorization: {{token}}
  
 ### Put
-PUT {{URL}}/person/00bf7b0d-34ef-4dde-9c71-a3c8b6ac75d2
+PUT {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
 Content-Type: application/json
 Authorization: {{token}}
 
 {
     "name": "bbbbbbbbbbbbbbb",
-    "email": "aas123232sa@hsshh.com",
+    "email": "aas1232sa@hsshh.com",
     "password": "12346123123",
     "phone": "12341231236",  
     "birth": "2001-11-11",
@@ -39,5 +38,5 @@ Authorization: {{token}}
 }
 
 ### Delete
-DELETE {{URL}}/person/11740e6b-b594-4746-9098-00ed98ef1007
+DELETE {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
 Authorization: {{token}}
