@@ -74,7 +74,7 @@ public class PersonController {
     @Operation(summary = "Obter pessoa por id.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = Person.class), mediaType = "application/json") }),
-        @ApiResponse(responseCode = "404", description = "Id não existe."),
+        @ApiResponse(responseCode = "400", description = "Id não existe."),
         @ApiResponse(responseCode = "500", description = "Erro interno do servidor.")
     })
     @SecurityRequirement(name = "Authorization")

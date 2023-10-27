@@ -1,6 +1,6 @@
 @URL = http://localhost:8080
 
-@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjM4MGM4NGUzLTVlYjktNDI5NS1hOTAxLTdhZDMwOGE5ZTcxYiIsInVzZXJuYW1lIjoidXN1YXJpb0BlbWFpbC5jb20iLCJpYXQiOjE2OTg0MDg2NjcsImV4cCI6MTY5ODQxMjI2NywiaXNzIjoiVVRGUFIifQ.fnz9ys9J1SOM2EviJiNwSlKAoaEfYrgL25VHDqFIfME
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjM4MGM4NGUzLTVlYjktNDI5NS1hOTAxLTdhZDMwOGE5ZTcxYiIsInVzZXJuYW1lIjoidXN1YXJpb0BlbWFpbC5jb20iLCJpYXQiOjE2OTg0MTAxODYsImV4cCI6MTY5ODQxMzc4NiwiaXNzIjoiVVRGUFIifQ.GwlBHo9J0FLEGDVbne8FCVzb-GWbrBPPU5r_R65-f_4
 
 ### Create 
 POST {{URL}}/person
@@ -20,7 +20,7 @@ GET {{URL}}/person
 Authorization: {{token}}
 
 ### GetById
-GET {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
+GET {{URL}}/person/380c84e3-5eb9-4295-a901-7ad308a9e71b
 Authorization: {{token}}
  
 ### Put
