@@ -22,6 +22,7 @@ import lombok.experimental.FieldDefaults;
 @Table(name = "TB_Role")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Role extends BaseEntity {
+   
     @Enumerated(EnumType.STRING)
     RoleName name;
 

@@ -14,8 +14,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 
-
 public class PagamentoDTO {
+
     @NotBlank(message = "Forma de pagamento obrigatória.")
     private String paymentMethod;
+
 }

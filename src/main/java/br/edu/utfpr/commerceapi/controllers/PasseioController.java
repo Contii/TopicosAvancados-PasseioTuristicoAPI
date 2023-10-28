@@ -44,13 +44,14 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "*")
 @Tag(name = "Passeio", description = "Endpoints")
 public class PasseioController {
+    
 	@Autowired
     private PasseioService passeioService;
 
     //================================== GET ==================================
     @Operation(summary = "Obtém lista de todos os passeios.")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = Person.class), mediaType = "application/json") }),
+        @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = Passeio.class), mediaType = "application/json") }),
         @ApiResponse(responseCode = "500", description = "Erro interno do servidor.")
     })
     @SecurityRequirement(name = "Authorization")
@@ -121,7 +122,7 @@ public class PasseioController {
     //================================== DELETE ==================================
     @Operation(summary = "Deleta um passeio pelo id.")
     @ApiResponses({
-        @ApiResponse(responseCode = "200", description = "Deletado com sucesso.", content = @Content(schema = @Schema(implementation = Person.class), mediaType = "application/json")),
+        @ApiResponse(responseCode = "200", description = "Deletado com sucesso.", content = @Content(schema = @Schema(implementation = Passeio.class), mediaType = "application/json")),
         @ApiResponse(responseCode = "404", description = "Id não existe."),
         @ApiResponse(responseCode = "500", description = "Erro interno do servidor.")
     })

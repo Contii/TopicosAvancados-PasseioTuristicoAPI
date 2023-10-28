@@ -22,8 +22,8 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 
-
 public class PacoteDTO {
+
     @NotBlank(message = "Nome obrigatório.")
     @Size(min=3, max=100, message = "Deve conter entre 3 e 100 caracteres.")
     private String name;
@@ -54,4 +54,5 @@ public class PacoteDTO {
     @Min(value = 1, message = "Mínimo 1.")
     @Max(value = 7, message = "Máximo 5.")
     private int availableVacancies;
+    
 }

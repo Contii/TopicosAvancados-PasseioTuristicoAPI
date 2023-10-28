@@ -1,38 +1,45 @@
 @URL_BASE=http://localhost:8080
 
-### Create
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjM4MGM4NGUzLTVlYjktNDI5NS1hOTAxLTdhZDMwOGE5ZTcxYiIsInVzZXJuYW1lIjoidXN1YXJpb0BlbWFpbC5jb20iLCJpYXQiOjE2OTg0MTAxODYsImV4cCI6MTY5ODQxMzc4NiwiaXNzIjoiVVRGUFIifQ.GwlBHo9J0FLEGDVbne8FCVzb-GWbrBPPU5r_R65-f_4
+
+### create
 POST {{URL_BASE}}/pacote
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-    "nome": "aaawwwwwwwwwwwwwwwwwwwwwwaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55.0,
-    "duracaoEmDias": 5.0,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "name": "aaawwwwwwwwwwwwwwwwwwwwwwaa",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "price": 55.0,
+    "durationInDays": 5.0,  
+    "beginDate": "2023-11-11",
+    "endDate": "2024-01-01",
+    "availableVacancies": "3"
 }
 
-### GetAll
+### getAll
 GET {{URL_BASE}}/pacote
+Authorization: {{token}}
 
-### GetById
+### getById
 GET {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
+Authorization: {{token}}
 
-### Put
+### put
 PUT {{URL_BASE}}/pacote/e91795f0-740c-4b5e-a110-fab8a98a233b
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-    "nome": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmDias": 5,  
-    "dataInicio": "2023-11-11",
-    "dataFim": "2024-01-01",
-    "vagasDisponiveis": "3"
+    "name": "bbbbbbbbaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "price": 55,
+    "durationInDays": 5,  
+    "beginDate": "2023-11-11",
+    "endDate": "2024-01-01",
+    "availableVacancies": "3"
 }
 
-### Delete
+### delete
 DELETE {{URL_BASE}}/pacote/4e6ec364-fd01-434d-b4ef-4d9fb232e070
+Authorization: {{token}}

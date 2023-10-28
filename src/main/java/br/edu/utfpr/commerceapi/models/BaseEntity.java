@@ -16,6 +16,7 @@ import lombok.ToString;
 @ToString
 @MappedSuperclass
 public class BaseEntity {
+    
     @Id
     private UUID id; 
     @Column (name = "created_at")

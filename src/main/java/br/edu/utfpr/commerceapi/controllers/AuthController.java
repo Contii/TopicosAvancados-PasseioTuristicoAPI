@@ -10,11 +10,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,12 +28,15 @@ import br.edu.utfpr.commerceapi.dto.AuthDTO;
 import br.edu.utfpr.commerceapi.dto.Message;
 import br.edu.utfpr.commerceapi.models.Person;
 import br.edu.utfpr.commerceapi.security.JwtUtil;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("/auth")
+@CrossOrigin(origins = "*")
+@Tag(name = "Authentication", description = "Endpoints")
 public class AuthController {
+
     @Autowired
     private AuthenticationManager authenticationManager;
 
@@ -79,7 +84,7 @@ public class AuthController {
             return ResponseEntity.ok(res);
         } catch (BadCredentialsException ex) {
             ex.printStackTrace();
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Message.b("Invalid credentials"));
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(Message.b("Credenciais inválidas"));
         }
     }
 

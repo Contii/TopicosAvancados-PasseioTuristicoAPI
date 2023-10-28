@@ -17,9 +17,10 @@ import lombok.ToString;
 @AllArgsConstructor
 @ToString
 
-
 public class ReservaDTO {
-    @NotNull(message = "Campo dataReserva obrigatório.")
+
+    @NotNull(message = "Data da reserva obrigatória.")
     @FutureOrPresent(message = "Deve ser no presente ou futuro.")
     private LocalDate reservationDate;
+
 }

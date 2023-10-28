@@ -10,5 +10,5 @@ public interface PasseioRepository extends JpaRepository<Passeio, UUID> {
         public List<Passeio> findByName(String name);
     
         public boolean existsByName(String name);
-
+        
 }

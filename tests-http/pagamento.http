@@ -1,26 +1,33 @@
 @URL_BASE=http://localhost:8080
 
-### Create
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjM4MGM4NGUzLTVlYjktNDI5NS1hOTAxLTdhZDMwOGE5ZTcxYiIsInVzZXJuYW1lIjoidXN1YXJpb0BlbWFpbC5jb20iLCJpYXQiOjE2OTg0MTAxODYsImV4cCI6MTY5ODQxMzc4NiwiaXNzIjoiVVRGUFIifQ.GwlBHo9J0FLEGDVbne8FCVzb-GWbrBPPU5r_R65-f_4
+
+### create
 POST {{URL_BASE}}/pagamento
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-    "formaPagamento": "Crédito"
+    "paymentMethod": "Crédito"
 }
 
-### GetAll
+### getAll
 GET {{URL_BASE}}/pagamento
+Authorization: {{token}}
 
-### GetById
+### getById
 GET {{URL_BASE}}/pagamento/0a8dcd94-275e-4224-a9c3-ee86915358bc
+Authorization: {{token}}
 
-### Put
+### put
 PUT {{URL_BASE}}/pagamento/9878a38e-fdfd-406e-91e5-0f6865199c61
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-    "formaPagamento": "Créditobb"
+    "paymentMethod": "Créditobb"
 }
 
-### Delete
+### delete
 DELETE {{URL_BASE}}/pagamento/9878a38e-fdfd-406e-91e5-0f6865199c61
+Authorization: {{token}}

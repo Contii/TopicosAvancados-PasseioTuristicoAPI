@@ -52,4 +52,5 @@ public class Pacote extends BaseEntity {
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)
     private List<Passeio> passeios = new ArrayList<>();
+    
 }

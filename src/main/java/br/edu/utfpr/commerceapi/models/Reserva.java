@@ -31,4 +31,5 @@ public class Reserva extends BaseEntity {
 
     @ManyToOne
     private Passeio passeio;
+    
 }

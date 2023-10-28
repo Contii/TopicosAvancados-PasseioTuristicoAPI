@@ -41,4 +41,5 @@ public class Passeio extends BaseEntity {
 
     @ManyToOne
     private Pacote pacote;
+    
 }

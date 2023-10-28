@@ -43,8 +43,9 @@ public class PasseioDTO {
     @Max(value = 5, message = "Máximo de vagas 5.")
     private int availableVacancies;
 
-    @NotNull(message = "Classificacao obrigatório.")
+    @NotNull(message = "Classificação obrigatória.")
     @Min(value = 1, message = "Idade minima 1.")
     @Max(value = 23, message = "Idade máxima 23.")
     private int classification;
+
 }

@@ -29,4 +29,5 @@ public class Pagamento extends BaseEntity {
     
     @ManyToOne
     private Person pessoa;
+    
 }

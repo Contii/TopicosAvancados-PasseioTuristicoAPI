@@ -48,6 +48,7 @@ import jakarta.validation.Valid;
 @CrossOrigin(origins = "*")
 @Tag(name = "Person", description = "Endpoints")
 public class PersonController {
+
     @Autowired
     private PersonService personService;
 

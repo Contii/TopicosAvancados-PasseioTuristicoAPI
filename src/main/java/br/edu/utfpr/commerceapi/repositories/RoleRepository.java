@@ -11,6 +11,8 @@ import br.edu.utfpr.commerceapi.models.Role;
 import br.edu.utfpr.commerceapi.models.RoleName;
 
 public interface RoleRepository extends JpaRepository<Role, UUID> {
+       
         @Query("FROM Role r WHERE r.name = :name")
         public Optional<Role> findByName(@Param("name") RoleName name);
+
 }

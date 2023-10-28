@@ -11,8 +11,8 @@ import lombok.ToString;
 @Setter
 @ToString
 
-
 public class AuthDTO {
+
     @NotBlank
     @Size(min = 3, max = 100)
     public String username;
@@ -20,4 +20,5 @@ public class AuthDTO {
     @NotBlank
     @Size(min = 3, max = 50)
     public String password;
+    
 }

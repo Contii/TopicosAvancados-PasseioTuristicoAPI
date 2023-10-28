@@ -2,7 +2,7 @@
 
 @token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjNkMmVkMTI5LWQzMDYtNDJjMy1hMGMyLTk5MGQ1MTkxMWQ0OSIsInVzZXJuYW1lIjoiY29udGkyQGVtYWlsLmNvbSIsImlhdCI6MTY5ODQ1MzA1OCwiZXhwIjoxNjk4NDU2NjU4LCJpc3MiOiJVVEZQUiJ9.e4dMAAFYxurUCxaNZc5kTO-mabXC5ntqII-dMMyfS9Y
 
-### Create 
+### create 
 POST {{URL}}/person
 Content-Type: application/json
 
@@ -15,15 +15,15 @@ Content-Type: application/json
     "profile": "Administrador"
 }
 
-### GetAll
+### getAll
 GET {{URL}}/person
 Authorization: {{token}}
 
-### GetById
+### getById
 GET {{URL}}/person/380c84e3-5eb9-4295-a901-7ad308a9e71b
 Authorization: {{token}}
  
-### Put
+### put
 PUT {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
 Content-Type: application/json
 Authorization: {{token}}
@@ -37,6 +37,6 @@ Authorization: {{token}}
     "profile": "Cliente"
 }
 
-### Delete
+### delete
 DELETE {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
 Authorization: {{token}}

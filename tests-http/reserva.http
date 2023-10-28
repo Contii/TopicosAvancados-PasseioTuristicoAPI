@@ -2,32 +2,32 @@
 
 @token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjM4MGM4NGUzLTVlYjktNDI5NS1hOTAxLTdhZDMwOGE5ZTcxYiIsInVzZXJuYW1lIjoidXN1YXJpb0BlbWFpbC5jb20iLCJpYXQiOjE2OTg0MTAxODYsImV4cCI6MTY5ODQxMzc4NiwiaXNzIjoiVVRGUFIifQ.GwlBHo9J0FLEGDVbne8FCVzb-GWbrBPPU5r_R65-f_4
 
-### Create
+### create
 POST {{URL_BASE}}/reserva
 Content-Type: application/json
 Authorization: {{token}}
 
 {
-    "reservetionDate": "3333-01-01"
+    "reservationDate": "3333-01-01"
 }
 
-### GetAll
+### getAll
 GET {{URL_BASE}}/reserva
 Authorization: {{token}}
 
-### GetById
+### getById
 GET {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702
 Authorization: {{token}}
 
-### Put
+### put
 PUT {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702
 Content-Type: application/json
 Authorization: {{token}}
 
 {
-    "reservetionDate": "2024-02-01"
+    "reservationDate": "2024-02-01"
 }
 
-### Delete
+### delete
 DELETE {{URL_BASE}}/reserva/25fbcaaf-1b82-4b09-9c62-29b9bca76702
 Authorization: {{token}}

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import br.edu.utfpr.commerceapi.dto.PagamentoDTO;
 import br.edu.utfpr.commerceapi.models.Pagamento;
-import br.edu.utfpr.commerceapi.models.Person;
 import br.edu.utfpr.commerceapi.repositories.PagamentoRepository;
 
 @Service

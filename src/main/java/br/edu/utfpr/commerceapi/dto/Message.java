@@ -6,8 +6,10 @@ import lombok.Getter;
  * Classe que representa uma mensagem de resposta para os clientes HTTP.
  * isso permite que o controller formate uma resposta personalizada ao cliente
  */
+
 @Getter
 public class Message {
+    
     private String message;
 
     private Message(String message) {
@@ -16,7 +18,6 @@ public class Message {
 
     /**
      * Cria um objeto Res contendo uma mensagem.
-     * 
      * @param message
      * @return Res
      */
@@ -26,10 +27,10 @@ public class Message {
 
     /**
      * Cria um objeto Res contendo uma mensagem.
-     * 
      * @param message
      * @return Res
      */
+
     public static Message b(String message) {
         return build(message);
     }

@@ -1,9 +1,6 @@
 @URL = http://localhost:8080/auth
 
-// ==================================================
-// ====================== POST ======================
-// ==================================================
-###Cadastrar uma autenticação
+### Autenticar usuário
 POST {{URL}}
 Content-Type: application/json
 

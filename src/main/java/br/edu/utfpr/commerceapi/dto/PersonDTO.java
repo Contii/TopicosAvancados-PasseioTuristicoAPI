@@ -20,15 +20,16 @@ import lombok.ToString;
 @ToString
 
 public class PersonDTO {
-    @NotBlank(message = "campo nome obrigatório.")
+    
+    @NotBlank(message = "Nome obrigatório.")
     @Size(min=3, max=100, message = "Deve conter entre 3 e 100 caracteres.")
     private String name;
 
-    @NotBlank(message = "campo email obrigatório.")
+    @NotBlank(message = "Email obrigatório.")
     @Email(message = "E-mail obrigatório.")
     private String email;
 
-    @NotBlank(message = "campo senha obrigatório.")
+    @NotBlank(message = "Senha obrigatório.")
     @Size(min=8, max=50, message = "Deve conter entre 8 e 50 caracteres.")
     private String password;
 
