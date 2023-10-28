@@ -15,8 +15,8 @@ import io.swagger.v3.oas.annotations.servers.Server;
 // Configurações gerais da API
 @OpenAPIDefinition(
   info =@Info(
-    title = "ToDo API",
-    version = "${api.version}",
+    title = "API Passeios Turisticos",
+    version = "1.0.0",
     contact = @Contact(
       name = "Joao Conti", email = "joaovitorconti@live.com", url = "https://github.com/Contii"
     ),
@@ -24,7 +24,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
       name = "Apache 2.0", url = "https://www.apache.org/licenses/LICENSE-2.0"
     ),
     //termsOfService = "${tos.uri}",
-    description = "${api.description}"
+    description = "Esta api tem como objetivo fornecer um sistema de passeios turisticos."
   ),
   servers = {
     @Server(

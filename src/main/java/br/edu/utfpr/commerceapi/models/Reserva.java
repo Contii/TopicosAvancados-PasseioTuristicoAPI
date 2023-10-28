@@ -23,8 +23,8 @@ import lombok.ToString;
 @Table(name = "TB_Reserva")
 public class Reserva extends BaseEntity {
     
-    @Column(name = "dataReserva", nullable = false)
-    private LocalDate dataReserva;
+    @Column(name = "reservationDate", nullable = false)
+    private LocalDate reservationDate;
 
     @ManyToOne
     private Pagamento pagamento;

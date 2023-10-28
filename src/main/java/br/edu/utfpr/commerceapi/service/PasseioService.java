@@ -2,6 +2,7 @@ package br.edu.utfpr.commerceapi.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
@@ -21,19 +22,28 @@ public class PasseioService {
         return passeioRepository.findAll();
     }
 
-    public Passeio findById(UUID id) {
-        return passeioRepository.findById(id).orElseThrow(() -> new RuntimeException("Passeio não encontrado"));
+    public Optional<Passeio> findById(UUID id) {
+        return passeioRepository.findById(id);
+        //.orElseThrow(() -> new RuntimeException("Passeio não encontrado"));
     }
 
-    public Passeio create(PasseioDTO passeioDto) {
+    public List<Passeio> findByName(String name) {
+        return passeioRepository.findByName(name);
+    }
+
+    public boolean existsByName(String name) {
+        return passeioRepository.existsByName(name);
+    }
+
+    public Passeio create(PasseioDTO passeioDTO) {
         Passeio passeio = new Passeio();
-        BeanUtils.copyProperties(passeioDto, passeio);
+        BeanUtils.copyProperties(passeioDTO, passeio);
         return passeioRepository.save(passeio);
     }
 
-    public Passeio update(UUID id, PasseioDTO passeioDto) {
+    public Passeio update(UUID id, PasseioDTO passeioDTO) {
         Passeio passeio = passeioRepository.findById(id).orElseThrow(() -> new RuntimeException("Passeio não encontrado"));
-        BeanUtils.copyProperties(passeioDto, passeio);
+        BeanUtils.copyProperties(passeioDTO, passeio);
         passeio.setUpdatedAt(LocalDateTime.now());
         return passeioRepository.save(passeio);
     }
@@ -43,4 +53,10 @@ public class PasseioService {
         passeioRepository.deleteById(id);
         return true;
     }
+
+    //@transactional
+    public Passeio save(Passeio passeio) {
+        return passeioRepository.save(passeio);
+    }
+
 }

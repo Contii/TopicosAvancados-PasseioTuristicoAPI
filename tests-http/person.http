@@ -1,38 +1,42 @@
-@URL_BASE=http://localhost:8080
+@URL = http://localhost:8080
 
-@t
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjNkMmVkMTI5LWQzMDYtNDJjMy1hMGMyLTk5MGQ1MTkxMWQ0OSIsInVzZXJuYW1lIjoiY29udGkyQGVtYWlsLmNvbSIsImlhdCI6MTY5ODQ1MzA1OCwiZXhwIjoxNjk4NDU2NjU4LCJpc3MiOiJVVEZQUiJ9.e4dMAAFYxurUCxaNZc5kTO-mabXC5ntqII-dMMyfS9Y
 
-### Create
-POST {{URL_BASE}}/person
+### Create 
+POST {{URL}}/person
 Content-Type: application/json
 
 {
-    "name": "aaaaaaaaaaaaaaa",
-    "email": "a@a.com",
-    "password": "1231",
+    "name": "Conti2",
+    "email": "conti2@email.com",
+    "password": "conti1234",
+    "phone": "99881234",  
+    "birth": "1900-01-01",
+    "profile": "Administrador"
+}
+
+### GetAll
+GET {{URL}}/person
+Authorization: {{token}}
+
+### GetById
+GET {{URL}}/person/380c84e3-5eb9-4295-a901-7ad308a9e71b
+Authorization: {{token}}
+ 
+### Put
+PUT {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
+Content-Type: application/json
+Authorization: {{token}}
+
+{
+    "name": "bbbbbbbbbbbbbbb",
+    "email": "aas1232sa@hsshh.com",
+    "password": "12346123123",
     "phone": "12341231236",  
     "birth": "2001-11-11",
     "profile": "Cliente"
 }
 
-### GetAll
-GET {{URL_BASE}}/person
-
-### GetById
-GET {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
-
-### Put
-PUT {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
-Content-Type: application/json
-
-{
-    "nome": "114fawer2134",
-    "email": "aassa@hsshh.com",
-    "senha": "12346123123",
-    "telefone": "12341231236",  
-    "nascimento": "2001-11-11",
-    "perfil": "Cliente"
-}
-
 ### Delete
-DELETE {{URL_BASE}}/person/d21dbf14-3b4a-439b-8463-286d1b8e0865
+DELETE {{URL}}/person/0b6f2aa9-6923-42bb-b3e7-e6e1b3b1095f
+Authorization: {{token}}

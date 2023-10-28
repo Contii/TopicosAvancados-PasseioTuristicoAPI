@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.FieldError;
+
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -31,6 +32,7 @@ import br.edu.utfpr.commerceapi.models.Person;
 import br.edu.utfpr.commerceapi.models.RoleName;
 import br.edu.utfpr.commerceapi.repositories.RoleRepository;
 import br.edu.utfpr.commerceapi.service.PersonService;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -56,13 +58,13 @@ public class PersonController {
     private PasswordEncoder passwordEncoder;
 
     //================================== GET ==================================
-    @Operation(summary = "Obter lista de todas as pessoas")
+    @Operation(summary = "Obtém lista de todas as pessoas.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = Person.class), mediaType = "application/json") }),
         @ApiResponse(responseCode = "500", description = "Erro interno do servidor.")
     })
     @SecurityRequirement(name = "Authorization")
-    @GetMapping(value = { "", "/" })
+    @GetMapping(value = { "" }) // @GetMapping(value = { "/", "/get/a/" })
     public ResponseEntity<Object> getAll() {
         try {
             return ResponseEntity.ok(personService.findAll());
@@ -71,7 +73,7 @@ public class PersonController {
         }
     }
     //================================== GET ==================================
-    @Operation(summary = "Obter pessoa por id.")
+    @Operation(summary = "Obtém pessoa por id.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", content = {@Content(schema = @Schema(implementation = Person.class), mediaType = "application/json") }),
         @ApiResponse(responseCode = "400", description = "Id não existe."),
@@ -85,7 +87,7 @@ public class PersonController {
         return res.isPresent() ? ResponseEntity.ok(res.get()) : ResponseEntity.status(404).body(Message.b("pessoa não encontrada"));
     }
     //================================== POST ==================================
-    @Operation(summary = "Inserir uma nova pessoa.")
+    @Operation(summary = "Insere uma nova pessoa.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", description = "Criado com sucesso.", content = {@Content(schema = @Schema(implementation = Person.class), mediaType = "application/json") }),
         @ApiResponse(responseCode = "303", description = "Email ja está sendo utilizado."),
@@ -122,7 +124,7 @@ public class PersonController {
         }
     }
     //================================== PUT ==================================
-    @Operation(summary = "Alterar uma pessoa pelo Id.")
+    @Operation(summary = "Altera uma pessoa pelo id.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", description = "Alterado com sucesso.", content = {@Content(schema = @Schema(implementation = Person.class), mediaType = "application/json") }),
         @ApiResponse(responseCode = "404", description = "Id não existe."),
@@ -134,7 +136,7 @@ public class PersonController {
         return ResponseEntity.ok(personService.update(UUID.fromString(id), personDto));
     }
     //================================== DELETE ==================================
-    @Operation(summary = "Deletar uma pessoa pelo Id.")
+    @Operation(summary = "Deleta uma pessoa pelo id.")
     @ApiResponses({
         @ApiResponse(responseCode = "200", description = "Deletado com sucesso.", content = @Content(schema = @Schema(implementation = Person.class), mediaType = "application/json")),
         @ApiResponse(responseCode = "404", description = "Id não existe."),

@@ -22,22 +22,22 @@ import lombok.ToString;
 public class Passeio extends BaseEntity {
    
     @Column(name = "name", length = 140, nullable = false)
-    private String nome;
+    private String name;
 
-    @Column(name = "descricao", length = 500, nullable = false)
-    private String descricao;
+    @Column(name = "description", length = 500, nullable = false)
+    private String description;
 
-    @Column(name = "valor", nullable = false)
-    private float valor;
+    @Column(name = "price", nullable = false)
+    private float price;
 
-    @Column(name = "duracaoEmHoras", nullable = false)
-    private int duracaoEmHoras;
+    @Column(name = "durationInHours", nullable = false)
+    private int durationInHours;
 
-    @Column(name = "vagasDisponiveis", nullable = false)
-    private int vagasDisponiveis;
+    @Column(name = "availableVacancies", nullable = false)
+    private int availableVacancies;
 
-    @Column(name = "classificacao", nullable = false)
-    private int classificacao;
+    @Column(name = "classification", nullable = false)
+    private int classification;
 
     @ManyToOne
     private Pacote pacote;

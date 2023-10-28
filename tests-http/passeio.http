@@ -1,37 +1,44 @@
 @URL_BASE=http://localhost:8080
 
+@token = Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBUEkgYXV0aGVudGljYXRpb24iLCJpZCI6IjM4MGM4NGUzLTVlYjktNDI5NS1hOTAxLTdhZDMwOGE5ZTcxYiIsInVzZXJuYW1lIjoidXN1YXJpb0BlbWFpbC5jb20iLCJpYXQiOjE2OTg0MTAxODYsImV4cCI6MTY5ODQxMzc4NiwiaXNzIjoiVVRGUFIifQ.GwlBHo9J0FLEGDVbne8FCVzb-GWbrBPPU5r_R65-f_4
+
 
 ### Create
 POST {{URL_BASE}}/passeio
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-    "nome": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmHoras": 5,  
-    "vagasDisponiveis": "2",
-    "classificacao": "12"
+    "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "price": 55,
+    "durationInHours": 5,  
+    "availableVacancies": "2",
+    "classification": "12"
 }
 
 ### GetAll
 GET {{URL_BASE}}/passeio
+Authorization: {{token}}
 
 ### GetById
 GET {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe
+Authorization: {{token}}
 
 ### Put
 PUT {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe
 Content-Type: application/json
+Authorization: {{token}}
 
 {
-    "nome": "bbbbbbbbbbbbbbbbbbbbbbbbbb",
-    "descricao": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-    "valor": 55,
-    "duracaoEmHoras": 5,  
-    "vagasDisponiveis": "2",
-    "classificacao": "12"
+    "name": "bbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "price": 55,
+    "durationInHours": 5,  
+    "availableVacancies": "2",
+    "classification": "12"
 }
 
 ### Delete
 DELETE {{URL_BASE}}/passeio/4b624124-5e6d-444f-bf36-c1a42da223fe
+Authorization: {{token}}

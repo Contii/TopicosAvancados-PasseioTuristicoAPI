@@ -2,6 +2,7 @@ package br.edu.utfpr.commerceapi.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
@@ -21,19 +22,20 @@ public class ReservaService {
         return reservaRepository.findAll();
     }
 
-    public Reserva findById(UUID id) {
-        return reservaRepository.findById(id).orElseThrow(() -> new RuntimeException("Reserva não encontrado"));
+    public Optional<Reserva> findById(UUID id) {
+        return reservaRepository.findById(id);
+        //.orElseThrow(() -> new RuntimeException("Person não encontrado"));
     }
 
-    public Reserva create(ReservaDTO reservaDto) {
+    public Reserva create(ReservaDTO reservaDTO) {
         Reserva reserva = new Reserva();
-        BeanUtils.copyProperties(reservaDto, reserva);
+        BeanUtils.copyProperties(reservaDTO, reserva);
         return reservaRepository.save(reserva);
     }
 
-    public Reserva update(UUID id, ReservaDTO reservaDto) {
+    public Reserva update(UUID id, ReservaDTO reservaDTO) {
         Reserva reserva = reservaRepository.findById(id).orElseThrow(() -> new RuntimeException("Reserva não encontrado"));
-        BeanUtils.copyProperties(reservaDto, reserva);
+        BeanUtils.copyProperties(reservaDTO, reserva);
         reserva.setUpdatedAt(LocalDateTime.now());
         return reservaRepository.save(reserva);
     }
@@ -42,5 +44,10 @@ public class ReservaService {
         reservaRepository.findById(id).orElseThrow(() -> new RuntimeException("Reserva não encontrado"));
         reservaRepository.deleteById(id);
         return true;
+    }
+
+    //@transactional
+    public Reserva save(Reserva reserva) {
+        return reservaRepository.save(reserva);
     }
 }

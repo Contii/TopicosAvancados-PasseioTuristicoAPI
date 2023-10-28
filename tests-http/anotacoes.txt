@@ -1,3 +1,4 @@
-arrumar tratativa de autenticacao em Controller Person
-Acrescentar tratativa de autenticação em outros Controllers? como?
+autenticação depois de reiniciar o sistema não funciona,
+é necessario criar um novo usuario para poder autenticar.
+
 arrumar swagger (como o indexcontroller funciona?)
