@@ -2,6 +2,7 @@ package br.edu.utfpr.commerceapi.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.BeanUtils;
@@ -21,10 +22,18 @@ public class PacoteService {
         return pacoteRepository.findAll();
     }
 
-    public Pacote findById(UUID id) {
-        return pacoteRepository.findById(id).orElseThrow(() -> new RuntimeException("Pacote não encontrado"));
+    public Optional<Pacote> findById(UUID id) {
+        return pacoteRepository.findById(id);
+        //.orElseThrow(() -> new RuntimeException("Pacote não encontrado"));
     }
 
+    public List<Pacote> findByName(String name) {
+        return pacoteRepository.findByName(name);
+    }
+
+    public boolean existsByName(String name) {
+        return pacoteRepository.existsByName(name);
+    }
     public Pacote create(PacoteDTO pacoteDto) {
         Pacote pacote = new Pacote();
         BeanUtils.copyProperties(pacoteDto, pacote);
@@ -43,4 +52,10 @@ public class PacoteService {
         pacoteRepository.deleteById(id);
         return true;
     }
+
+    //@transactional
+    public Pacote save(Pacote pacote) {
+        return pacoteRepository.save(pacote);
+    }
+
 }

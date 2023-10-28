@@ -20,30 +20,30 @@ import lombok.ToString;
 
 
 public class PasseioDTO {
-    @NotBlank(message = "campo nome obrigatório.")
+    @NotBlank(message = "Nome obrigatório.")
     @Size(min=3, max=100, message = "Deve conter entre 3 e 100 caracteres.")
     private String name;
 
-    @NotBlank(message = "campo descricao obrigatório.")
+    @NotBlank(message = "Descricao obrigatória.")
     @Size(min=20, max=500, message = "Deve conter entre 20 e 500 caracteres.")
     private String description;
 
-    @NotNull(message = "campo preço obrigatório.")
+    @NotNull(message = "Preço obrigatório.")
     @Min(value = 50, message = "Preço mínimo 50.")
     @Max(value = 5000, message = "Preço máximo 5000.")
     private float price;
 
-    @NotNull(message = "campo duracaoEmHoras obrigatório.")
+    @NotNull(message = "Duração em horas obrigatória.")
     @Min(value = 1, message = "duração mínima 1 hora.")
     @Max(value = 72, message = "duraçao máxima 72 horas.")
     private int durationInHours;
 
-    @NotNull(message = "campo vagasDisponiveis obrigatório.")
+    @NotNull(message = "Vagas obrigatórias.")
     @Min(value = 1, message = "Minimo de vagas 1.")
     @Max(value = 5, message = "Máximo de vagas 5.")
     private int availableVacancies;
 
-    @NotNull(message = "campo classificacao obrigatório.")
+    @NotNull(message = "Classificacao obrigatório.")
     @Min(value = 1, message = "Idade minima 1.")
     @Max(value = 23, message = "Idade máxima 23.")
     private int classification;

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
+
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,7 +28,6 @@ import org.springframework.web.bind.annotation.RestController;
 import br.edu.utfpr.commerceapi.dto.Message;
 import br.edu.utfpr.commerceapi.dto.PasseioDTO;
 import br.edu.utfpr.commerceapi.models.Passeio;
-import br.edu.utfpr.commerceapi.models.Person;
 import br.edu.utfpr.commerceapi.service.PasseioService;
 
 import io.swagger.v3.oas.annotations.Operation;

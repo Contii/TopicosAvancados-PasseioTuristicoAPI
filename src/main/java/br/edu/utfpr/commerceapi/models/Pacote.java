@@ -29,25 +29,25 @@ import lombok.ToString;
 public class Pacote extends BaseEntity {
 
     @Column(name = "name", length = 140, nullable = false, unique = true)
-    private String nome;
+    private String name;
 
-    @Column(name = "descricao", length = 100, nullable = false)
-    private String descricao;
+    @Column(name = "description", length = 100, nullable = false)
+    private String description;
 
-    @Column(name = "valor", nullable = false)
-    private float valor;
+    @Column(name = "price", nullable = false)
+    private float price;
 
-    @Column(name = "duracaoEmDias", nullable = false)
-    private int duracaoEmDias;
+    @Column(name = "durationInDays", nullable = false)
+    private int durationInDays;
 
-    @Column(name = "dataInicio", nullable = false)
-    private LocalDate dataInicio;
+    @Column(name = "beginDate", nullable = false)
+    private LocalDate beginDate;
 
-    @Column(name = "dataFim", nullable = false)
-    private LocalDate dataFim;
+    @Column(name = "endDate", nullable = false)
+    private LocalDate endDate;
 
-    @Column(name = "vagasDisponiveis", nullable = false)
-    private int vagasDisponiveis;
+    @Column(name = "availableVacancies", nullable = false)
+    private int availableVacancies;
 
     @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL)

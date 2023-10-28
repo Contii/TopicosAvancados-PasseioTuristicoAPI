@@ -24,34 +24,34 @@ import lombok.ToString;
 
 
 public class PacoteDTO {
-    @NotBlank(message = "campo nome obrigatório.")
+    @NotBlank(message = "Nome obrigatório.")
     @Size(min=3, max=100, message = "Deve conter entre 3 e 100 caracteres.")
-    private String nome;
+    private String name;
 
-    @NotBlank(message = "campo descricao obrigatório.")
+    @NotBlank(message = "Descrição obrigatória.")
     @Size(min=20, max=500, message = "Deve conter entre 20 e 500 caracteres.")
-    private String descricao;
+    private String description;
 
-    @NotNull(message = "campo valor obrigatório.")
+    @NotNull(message = "Preço obrigatório.")
     @Min(value = 50, message = "Valor mínimo 50.")
     @Max(value = 10000, message = "Valor máximo 10000.")
-    private float valor;
+    private float price;
 
-    @NotNull(message = "campo duracaoEmDias obrigatório.")
+    @NotNull(message = "Duração obrigatória.")
     @Min(value = 1, message = "Duração em dias mínima 1.")
     @Max(value = 7, message = "Duração em dias máxima 7.")
-    private int duracaoEmDias;
+    private int durationInDays;
 
-    @NotNull(message = "campo dataInicio obrigatório.")
+    @NotNull(message = "Data de início obrigatória.")
     @FutureOrPresent(message = "Não temos viagens ao passado.")   
-    private LocalDate dataInicio;
+    private LocalDate beginDate;
     
-    @NotNull(message = "campo dataFim obrigatório.")
+    @NotNull(message = "Data final obrigatória.")
     @Future(message = "Deve ser no futuro.")
-    private LocalDate dataFim;
+    private LocalDate endDate;
 
-    @NotNull(message = "campo vagasDisponiveis obrigatório.")
+    @NotNull(message = "Vagas obrigatórias.")
     @Min(value = 1, message = "Mínimo 1.")
     @Max(value = 7, message = "Máximo 5.")
-    private int vagasDisponiveis;
+    private int availableVacancies;
 }

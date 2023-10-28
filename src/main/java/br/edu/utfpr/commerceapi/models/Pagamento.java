@@ -21,8 +21,8 @@ import lombok.ToString;
 @Table(name = "TB_Pagamento")
 public class Pagamento extends BaseEntity {
 
-    @Column(name = "formaPagamento", length = 20, nullable = false)
-    private String formaPagamento;
+    @Column(name = "paymentMethod", length = 20, nullable = false)
+    private String paymentMethod;
 
     @ManyToOne
     private Pacote pacote;

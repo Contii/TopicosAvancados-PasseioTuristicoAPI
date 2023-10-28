@@ -16,6 +16,6 @@ import lombok.ToString;
 
 
 public class PagamentoDTO {
-    @NotBlank(message = "campo formaPagamento obrigatório.")
-    private String formaPagamento;
+    @NotBlank(message = "Forma de pagamento obrigatória.")
+    private String paymentMethod;
 }
